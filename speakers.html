@@ -1,1 +1,611 @@
-<!-- Content of speakers.html -->
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  .speakers-breakout {
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -126px;
+    width: 100vw;
+    background-color: #C2FFDB;
+    padding: 40px 60px;
+    box-sizing: border-box;
+  }
+
+  .speakers-breakout__title {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    color: #111111;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .speakers-breakout__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 36px 24px;
+  }
+
+  .speakers-breakout__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .speakers-breakout__photo-wrap {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 14px;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: center 20%;
+    border: 2px solid #f2f2f2;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .speakers-breakout__photo-wrap:hover {
+    opacity: 0.3;
+  }
+
+  .speakers-breakout__photo-wrap--contain {
+    background-size: 70%;
+    background-position: center center;
+  }
+
+  .speakers-breakout__photo-wrap--contain-large {
+    background-size: 110%;
+    background-position: center center;
+  }
+
+  .speakers-breakout__photo-wrap--medium {
+    background-size: 110%;
+    background-position: center 15%;
+  }
+
+  .speakers-breakout__photo-wrap--small {
+    background-size: 55%;
+    background-position: center center;
+  }
+
+  .speakers-breakout__name {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: #111111;
+    margin-bottom: 2px !important;
+    margin-top: 0 !important;
+  }
+
+  .speakers-breakout__name--tbc {
+    font-style: italic;
+  }
+
+  .speakers-breakout__role {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #555555;
+    line-height: 1.5;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .speakers-breakout__role--tbc {
+    color: #999999;
+  }
+
+  .spk-tooltip {
+    position: fixed;
+    background-color: #ffffff;
+    color: #111111;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 16px 18px;
+    border-radius: 6px;
+    width: 240px;
+    pointer-events: none;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .spk-tooltip.spk-tooltip--visible {
+    display: block;
+  }
+
+  .speakers-breakout__bio-mobile {
+    display: none;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555555;
+    margin-top: 0 !important;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .speakers-breakout {
+      padding: 32px 24px 80px 24px;
+    }
+    .speakers-breakout__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 16px;
+    }
+    .speakers-breakout__title {
+      font-size: 26px;
+    }
+    .speakers-breakout__photo-wrap {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .speakers-breakout__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .festival-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    z-index: 9999;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .festival-nav.festival-nav--visible {
+    transform: translateY(0);
+  }
+
+  .festival-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 56px;
+    max-width: 100%;
+  }
+
+  .festival-nav__logo {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    color: #111111;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .festival-nav__logo span {
+    color: #3885FF;
+  }
+
+  .festival-nav__links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .festival-nav__links li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .festival-nav__links a {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #333333;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .festival-nav__links a:hover {
+    color: #3885FF;
+  }
+
+  .festival-nav__btn {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #ffffff !important;
+    background-color: #FF6B85;
+    padding: 8px 20px;
+    border-radius: 4px;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .festival-nav__btn:hover {
+    background-color: #e8527a !important;
+    color: #ffffff !important;
+  }
+
+  .festival-nav__mobile-scroll {
+    display: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 16px 12px 16px;
+    border-top: 1px solid #f0f0f0;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .festival-nav__mobile-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .festival-nav__mobile-scroll a {
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #333333;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-right: 6px;
+  }
+
+  .festival-nav__mobile-scroll a:hover {
+    background-color: #3885FF;
+    color: #ffffff;
+  }
+
+  .festival-nav__mobile-scroll a:last-child {
+    background-color: #FF6B85;
+    color: #ffffff;
+    margin-right: 0;
+  }
+
+  @media (max-width: 900px) {
+    .festival-nav__links {
+      display: none;
+    }
+    .festival-nav__inner {
+      padding: 0 24px;
+    }
+    .festival-nav__mobile-scroll {
+      display: flex;
+    }
+    .festival-nav {
+      transform: translateY(0) !important;
+    }
+  }
+</style>
+
+<div class="spk-tooltip" id="spk-tooltip"></div>
+
+<nav class="festival-nav" id="festival-nav">
+  <div class="festival-nav__inner">
+    <a href="#" class="festival-nav__logo">OpenEU <span>Festival</span></a>
+    <ul class="festival-nav__links">
+      <li><a href="#festival-about">About</a></li>
+      <li><a href="#festival-tracks">Tracks</a></li>
+      <li><a href="#festival-speakers">Speakers</a></li>
+      <li><a href="#festival-agenda">Agenda</a></li>
+      <li><a href="#festival-host">Host Institution</a></li>
+      <li><a href="#festival-register">Registration</a></li>
+      <li><a href="#festival-council">Student Council</a></li>
+    </ul>
+  </div>
+  <div class="festival-nav__mobile-scroll">
+    <a href="#festival-about">About</a>
+    <a href="#festival-tracks">Tracks</a>
+    <a href="#festival-speakers">Speakers</a>
+    <a href="#festival-agenda">Agenda</a>
+    <a href="#festival-host">Host</a>
+    <a href="#festival-register">Registration</a>
+    <a href="#festival-council">Council</a>
+    <a href="#festival-register">Register Now</a>
+  </div>
+</nav>
+
+<section class="speakers-breakout" id="festival-speakers">
+
+  <h2 class="speakers-breakout__title">Meet the Speakers</h2>
+
+  <div class="speakers-breakout__grid">
+
+    <!-- Speaker 1 - Decidim -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain"
+        style="background-image: url('https://storage-8.saas.pokecode.net/ntjo9awqzujbng0ci65wkeevlswj');"
+        data-bio="Decidim is a free and open-source participatory democracy platform used by cities and organisations across Europe.">
+      </div>
+      <p class="speakers-breakout__name">Decidim</p>
+      <p class="speakers-breakout__role">To be announced</p>
+      <p class="speakers-breakout__bio-mobile">Decidim is a free and open-source participatory democracy platform used by cities and organisations across Europe.</p>
+    </div>
+
+    <!-- Speaker 2 - Paul Zoubkov -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/5nbodbhs2ta1qdau37l5e539j1ln');"
+        data-bio="Paul Zoubkov is Europe Manager at Democracy Reporting International (DRI), working to strengthen democratic institutions and participation across Europe.">
+      </div>
+      <p class="speakers-breakout__name">Paul Zoubkov</p>
+      <p class="speakers-breakout__role">Europe Manager<br>Democracy Reporting International (DRI)</p>
+      <p class="speakers-breakout__bio-mobile">Paul Zoubkov is Europe Manager at Democracy Reporting International (DRI), working to strengthen democratic institutions and participation across Europe.</p>
+    </div>
+
+    <!-- Speaker 3 - Athina Karatzogianni -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/ro6zxck1k7zer9mzdn1pmkfqp4g7');"
+        data-bio="Athina Karatzogianni is Professor of Technology and Society at the University of Leicester, specialising in digital activism and the politics of technology.">
+      </div>
+      <p class="speakers-breakout__name">Athina Karatzogianni</p>
+      <p class="speakers-breakout__role">Professor of Technology and Society<br>University of Leicester</p>
+      <p class="speakers-breakout__bio-mobile">Athina Karatzogianni is Professor of Technology and Society at the University of Leicester, specialising in digital activism and the politics of technology.</p>
+    </div>
+
+    <!-- Speaker 4 - Loukas Tsoukalis -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap"
+        style="background-image: url('https://storage-8.saas.pokecode.net/cee8lbrn130746r5416pei3zp8fr');"
+        data-bio="Loukas Tsoukalis is President of the Board of the Hellenic Foundation for European and Foreign Policy, and one of Europe's leading voices on political economy and European integration.">
+      </div>
+      <p class="speakers-breakout__name">Loukas Tsoukalis</p>
+      <p class="speakers-breakout__role">President of the Board of the Hellenic Foundation for European and Foreign Policy</p>
+      <p class="speakers-breakout__bio-mobile">Loukas Tsoukalis is President of the Board of the Hellenic Foundation for European and Foreign Policy, and one of Europe's leading voices on political economy and European integration.</p>
+    </div>
+
+    <!-- Speaker 5 - Repair Café -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/vfk33e3agqkcj9dopwge4gujdfwu');"
+        data-bio="Repair Cafés are free meeting places and they're all about repairing things (together). In the place where a Repair Café is located, you'll find tools and materials to help you make any repairs you need. On clothes, furniture, electrical appliances, bicycles, crockery, appliances, toys, et cetera. You'll also find expert volunteers, with repair skills in all kinds of fields. There are over 2,500 Repair Cafés worldwide.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name--tbc">Repair Café</p>
+      <p class="speakers-breakout__role speakers-breakout__role--tbc">To be announced</p>
+      <p class="speakers-breakout__bio-mobile">Repair Cafés are free meeting places and they're all about repairing things (together). You'll find tools, materials and expert volunteers to help repair clothes, furniture, electrical appliances, bicycles, toys and more. There are over 2,500 Repair Cafés worldwide.</p>
+    </div>
+
+    <!-- Speaker 6 - The Sámi Parliament -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap"
+        style="background-image: url('https://storage-8.saas.pokecode.net/99prqi9p8j7teuy7ouaukldynx2z'); background-size: 65%; background-position: center center;"
+        data-bio="The Sami Parliament of Norway (Sámediggi) is a representative, elected body established in 1989 to strengthen Sami political position and enable self-determination in cultural matters. Comprising 39 members elected every four years from seven constituencies, it operates in Karasjok, serving as an advisory, rather than legislative, body regarding Sami culture, language, and land rights.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name--tbc">The Sámi Parliament</p>
+      <p class="speakers-breakout__role speakers-breakout__role--tbc">To be announced</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 7 - Vlad Vexler -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/xr9a385ojzkil6om30uv50cc9ro7');"
+        data-bio="Born in Soviet Moscow in 1981, Vlad grew up with four generations under one roof — including a great-grandmother who had survived the Russian Revolution. His childhood was marked by rationing and empty supermarket shelves. A vivid early memory: queuing for hours, aged 9, to visit Moscow's first McDonald's when it opened in 1991. As the economy collapsed, his family fled to Israel, then later to the UK, where Vlad became a British citizen and made his home in London. He has also lived in Australia and Tonga. In 2003, during postgraduate studies at Oxford, he contracted Myalgic Encephalomyelitis (M.E.) — a serious neurological condition clinicians consider as debilitating as HIV or MS. He was unable to walk, talk or read for two years. Today he is largely housebound, managing his symptoms daily. Living with M.E. gives Vlad a rare and hard-won perspective on disability, on the tragic, and on the unexpected beauty found within it.">
+      </div>
+      <p class="speakers-breakout__name">Vlad Vexler</p>
+      <p class="speakers-breakout__role">Philosopher & Political Analyst</p>
+      <p class="speakers-breakout__bio-mobile"></p>
+    </div>
+
+    <!-- Speaker 8 - Ólína Kjerúlf Þorvarðardóttir -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/uin8t8khpo6ofrf09pjfty3o4nkw');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name">Ólína Kjerúlf Þorvarðardóttir</p>
+      <p class="speakers-breakout__role">Rector<br>Bifröst University, Iceland</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 9 - Dane Madore -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/bfrc99b8o4kmkcr4j142e5j176vy');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name">Dane Madore</p>
+      <p class="speakers-breakout__role">Psychoanalyst • Author • Researcher</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 10 - TBC -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap"
+        style="background-image: url('https://storage-8.saas.pokecode.net/yxz8ewzr6w8twx89jh0bjseypi0n'); background-size: 65%; background-position: center center;"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
+      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 11 - TBC -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/hby9zox395f0zks7u5fz5zjlox4d');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
+      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 12 - TBC -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/0ogaj1n6kh2ejcofa69lbc1haucv');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
+      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 13 - TBC -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/rbyt2kcpnpvi5lx67v24n7gxf5jx');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
+      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 14 - TBC -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap"
+        style="background-image: url('https://storage-8.saas.pokecode.net/yxz8ewzr6w8twx89jh0bjseypi0n'); background-size: 65%; background-position: center center;"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
+      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 15 - TBC -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/hby9zox395f0zks7u5fz5zjlox4d');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
+      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 16 - TBC -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/0ogaj1n6kh2ejcofa69lbc1haucv');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
+      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+  (function() {
+    var tooltip = document.getElementById('spk-tooltip');
+    var tooltipWidth = 240;
+    var margin = 12;
+    var photos = document.querySelectorAll('.speakers-breakout__photo-wrap');
+
+    photos.forEach(function(photo) {
+      photo.addEventListener('mouseenter', function(e) {
+        var bio = this.getAttribute('data-bio');
+        if (!bio) return;
+        tooltip.textContent = bio;
+        tooltip.classList.add('spk-tooltip--visible');
+        positionTooltip(e);
+      });
+      photo.addEventListener('mousemove', function(e) {
+        positionTooltip(e);
+      });
+      photo.addEventListener('mouseleave', function() {
+        tooltip.classList.remove('spk-tooltip--visible');
+      });
+      photo.addEventListener('click', function(e) {
+        var bio = this.getAttribute('data-bio');
+        if (!bio) return;
+        if (tooltip.classList.contains('spk-tooltip--visible') &&
+            tooltip.getAttribute('data-active') === bio) {
+          tooltip.classList.remove('spk-tooltip--visible');
+          tooltip.removeAttribute('data-active');
+        } else {
+          tooltip.textContent = bio;
+          tooltip.setAttribute('data-active', bio);
+          tooltip.classList.add('spk-tooltip--visible');
+          positionTooltipCenter(this);
+        }
+      });
+    });
+
+    function positionTooltip(e) {
+      var vw = window.innerWidth;
+      var vh = window.innerHeight;
+      var th = tooltip.offsetHeight || 80;
+      var x = e.clientX + 16;
+      var y = e.clientY - th - 12;
+      if (x + tooltipWidth > vw - margin) { x = vw - tooltipWidth - margin; }
+      if (x < margin) { x = margin; }
+      if (y < margin) { y = e.clientY + 16; }
+      if (y + th > vh - margin) { y = vh - th - margin; }
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    }
+
+    function positionTooltipCenter(el) {
+      var vw = window.innerWidth;
+      var rect = el.getBoundingClientRect();
+      var th = tooltip.offsetHeight || 80;
+      var x = (vw - tooltipWidth) / 2;
+      var y = rect.top - th - 12;
+      if (y < margin) { y = rect.bottom + 12; }
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    }
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.speakers-breakout__photo-wrap')) {
+        tooltip.classList.remove('spk-tooltip--visible');
+        tooltip.removeAttribute('data-active');
+      }
+    });
+  })();
+
+  (function() {
+    var nav = document.getElementById('festival-nav');
+
+    nav.style.top = '0px';
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        nav.classList.add('festival-nav--visible');
+      } else {
+        nav.classList.remove('festival-nav--visible');
+      }
+    });
+
+    document.querySelectorAll('.festival-nav a[href^="#"], .festival-nav__mobile-scroll a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          var navHeight = nav.offsetHeight;
+          var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      });
+    });
+  })();
+</script>

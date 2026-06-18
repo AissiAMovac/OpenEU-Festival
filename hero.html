@@ -1,1 +1,327 @@
-<!-- Content of hero.html -->
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@700;800;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  .hero-breakout {
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -240px;
+    width: 100vw;
+    min-height: 600px;
+    background-color: #3885FF;
+    background-image: url('https://storage-8.saas.pokecode.net/t9sx30hwmdso6nh9dyztm6s7b84u');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 60px 60px;
+    overflow: hidden;
+  }
+  .hero-breakout .card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 36px 36px;
+    width: 380px;
+    max-width: 380px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-breakout .label-online {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FF6B85;
+    margin-bottom: 4px;
+  }
+  .hero-breakout .label-date {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #3885FF;
+    margin-bottom: 20px;
+  }
+  .hero-breakout .title {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 1;
+    color: #111111;
+    text-align: left;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    border: none !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
+  .hero-breakout .title-main {
+    display: block;
+    text-transform: uppercase;
+  }
+  .hero-breakout .title-sub {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: none;
+    margin-top: 8px;
+  }
+  .hero-breakout .description {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #333333;
+    margin-bottom: 20px;
+    font-weight: 400;
+    text-align: left;
+  }
+  .hero-breakout .countdown {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .hero-breakout .countdown__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3885FF;
+    border-radius: 6px;
+    padding: 8px 10px;
+    flex: 1;
+  }
+  .hero-breakout .countdown__number {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-breakout .countdown__label {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+  }
+  .hero-breakout .btn-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .hero-breakout .btn-register {
+    display: inline-block;
+    background-color: #cccccc;
+    color: #ffffff;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: not-allowed;
+    width: 100%;
+    text-align: center;
+  }
+  .hero-breakout .btn-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #111111;
+    color: #ffffff;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .hero-breakout .btn-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #111111;
+  }
+  .hero-breakout .btn-wrap:hover .btn-tooltip {
+    opacity: 1;
+  }
+
+  .hero-emoji {
+    position: absolute;
+    bottom: -80px;
+    opacity: 0;
+    animation: floatUp linear infinite;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(-5deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-750px) rotate(10deg);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-breakout {
+      min-height: 600px;
+      padding: 30px 24px;
+      margin-top: -240px;
+      justify-content: center;
+      align-items: center;
+      background-position: right center;
+    }
+    .hero-breakout .card {
+      width: 75%;
+      max-width: 280px;
+      padding: 20px 20px;
+    }
+    .hero-breakout .label-online {
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+    .hero-breakout .label-date {
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+    .hero-breakout .title {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    .hero-breakout .title-sub {
+      font-size: 12px;
+    }
+    .hero-breakout .description {
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .hero-breakout .countdown {
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+    .hero-breakout .countdown__item {
+      padding: 6px 4px;
+    }
+    .hero-breakout .countdown__number {
+      font-size: 14px;
+    }
+    .hero-breakout .countdown__label {
+      font-size: 7px;
+    }
+    .hero-breakout .btn-register {
+      font-size: 12px;
+      padding: 10px 16px;
+    }
+  }
+</style>
+
+<section class="hero-breakout" id="festival-hero">
+
+  <div class="hero-emoji" style="left:3%;font-size:40px;animation-duration:8s;animation-delay:0s;">🗳️</div>
+  <div class="hero-emoji" style="left:10%;font-size:52px;animation-duration:10s;animation-delay:1.5s;">🏛️</div>
+  <div class="hero-emoji" style="left:18%;font-size:44px;animation-duration:7s;animation-delay:3s;">✊</div>
+  <div class="hero-emoji" style="left:28%;font-size:48px;animation-duration:9s;animation-delay:0.5s;">🌍</div>
+  <div class="hero-emoji" style="left:38%;font-size:42px;animation-duration:11s;animation-delay:2s;">💬</div>
+  <div class="hero-emoji" style="left:50%;font-size:50px;animation-duration:8s;animation-delay:4s;">🕊️</div>
+  <div class="hero-emoji" style="left:60%;font-size:40px;animation-duration:10s;animation-delay:1s;">📜</div>
+  <div class="hero-emoji" style="left:70%;font-size:46px;animation-duration:9s;animation-delay:2.5s;">⚖️</div>
+  <div class="hero-emoji" style="left:80%;font-size:44px;animation-duration:7s;animation-delay:3.5s;">🤝</div>
+  <div class="hero-emoji" style="left:90%;font-size:48px;animation-duration:11s;animation-delay:0.8s;">🌱</div>
+  <div class="hero-emoji" style="left:6%;font-size:36px;animation-duration:12s;animation-delay:5s;">⚖️</div>
+  <div class="hero-emoji" style="left:55%;font-size:40px;animation-duration:9s;animation-delay:6s;">🗳️</div>
+  <div class="hero-emoji" style="left:75%;font-size:44px;animation-duration:8s;animation-delay:4.5s;">🕊️</div>
+  <div class="hero-emoji" style="left:95%;font-size:38px;animation-duration:10s;animation-delay:2s;">🌍</div>
+
+  <div class="card">
+    <p class="label-online">Online</p>
+    <p class="label-date">October 23–25, 2026</p>
+    <h1 class="title">
+      <span class="title-main">OPENEU FESTIVAL:</span>
+      <span class="title-sub">The Open Canvas of Democracy</span>
+    </h1>
+    <p class="description">
+      Join a landmark online event for university students and staff to
+      innovate and drive democratic engagement across Europe.
+    </p>
+    <div class="countdown" id="festival-countdown">
+      <div class="countdown__item">
+        <span class="countdown__number" id="cd-days">--</span>
+        <span class="countdown__label">Days</span>
+      </div>
+      <div class="countdown__item">
+        <span class="countdown__number" id="cd-hours">--</span>
+        <span class="countdown__label">Hours</span>
+      </div>
+      <div class="countdown__item">
+        <span class="countdown__number" id="cd-minutes">--</span>
+        <span class="countdown__label">Minutes</span>
+      </div>
+      <div class="countdown__item">
+        <span class="countdown__number" id="cd-seconds">--</span>
+        <span class="countdown__label">Seconds</span>
+      </div>
+    </div>
+    <div class="btn-wrap">
+      <span class="btn-tooltip">Registration coming soon!</span>
+      <a href="#" class="btn-register" onclick="return false;">Register Now</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var target = new Date('2026-10-23T09:00:00').getTime();
+
+  function update() {
+    var now = new Date().getTime();
+    var diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-minutes').textContent = '00';
+      document.getElementById('cd-seconds').textContent = '00';
+      return;
+    }
+
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+  }
+
+  update();
+  setInterval(update, 1000);
+})();
+</script>

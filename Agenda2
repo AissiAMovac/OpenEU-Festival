@@ -1,0 +1,209 @@
+<div class="agwrap">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.agwrap *{box-sizing:border-box;margin:0;padding:0;font-family:'Work Sans',sans-serif}
+.agwrap{--blue:#3885FF;--coral:#FF6B85;--purple:#AB6EFF;--green:#26FF94;--ink:#15233b;--line:#e7e4dd;--muted:#6b7280;
+  color:var(--ink);background:#fff;padding:24px 22px 50px;border-radius:18px;position:relative;overflow:hidden}
+.agwrap .agbar{position:sticky;top:8px;z-index:20;background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:14px 16px;margin:0 auto 12px;max-width:980px;
+  display:flex;flex-direction:column;gap:13px;box-shadow:0 4px 16px rgba(21,35,59,.06)}
+.agwrap .agrow1{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.agwrap .agdays{display:flex;gap:6px}
+.agwrap .agday{font-weight:700;font-size:13px;border:1px solid var(--line);cursor:pointer;
+  background:#fff;color:var(--ink);padding:10px 16px;border-radius:10px;transition:.15s;white-space:nowrap}
+.agwrap .agday:hover{border-color:var(--blue);color:var(--blue)}
+.agwrap .agday.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.agwrap .agselects{display:flex;gap:10px;flex-wrap:wrap}
+.agwrap .agselect{position:relative;display:flex;align-items:center}
+.agwrap .agselect svg{position:absolute;left:12px;width:15px;height:15px;pointer-events:none;opacity:.5}
+.agwrap select{font-weight:600;font-size:13.5px;color:var(--ink);background:#fff;
+  border:1px solid var(--line);border-radius:10px;padding:9px 32px 9px 34px;cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2315233b' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center}
+.agwrap select:hover{border-color:var(--blue)}
+.agwrap .agpills{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.agwrap .agpilllabel{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.agwrap .agpill{font-weight:700;font-size:12.5px;border:1.5px solid var(--line);
+  background:#fff;color:var(--ink);padding:6px 14px;border-radius:20px;cursor:pointer;transition:.15s;white-space:nowrap}
+.agwrap .agpill:hover{border-color:var(--ink)}
+.agwrap .agpill.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.agwrap .agtzbanner{max-width:980px;margin:2px auto 22px;text-align:center;color:var(--ink);font-size:13px;font-weight:500;
+  background:#f6f8fb;border:1px solid var(--line);border-radius:10px;padding:9px 16px}
+.agwrap .agtzbanner b{font-weight:800;color:var(--blue)}
+.agwrap .agdate{font-weight:700;font-size:16px;color:var(--ink);text-align:center;margin:10px 0 4px;letter-spacing:.2px}
+.agwrap .agspray{display:block;width:150px;height:13px;margin:8px auto 20px;opacity:.9}
+.agwrap .agslots{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.agwrap .agparallel{border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(21,35,59,.05)}
+.agwrap .agphead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  background:#f6f8fb;border-bottom:1px solid var(--line);padding:9px 16px}
+.agwrap .agphead .agptime{font-weight:800;font-size:16px;color:var(--blue)}
+.agwrap .agphead .agptime .agdash{color:var(--ink);opacity:.35;font-weight:600}
+.agwrap .agphead .agpmeta{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.agwrap .agphead .agptz{font-size:11px;font-weight:600;color:var(--muted)}
+.agwrap .agbreakgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.agwrap .agmini{padding:13px 13px 14px;border-right:1px solid var(--line);border-top:4px solid var(--line);
+  display:flex;flex-direction:column;gap:6px;min-height:120px}
+.agwrap .agmini:last-child{border-right:none}
+.agwrap .agmini .agroom{font-weight:700;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.agwrap .agmini .agtracktag{align-self:flex-start;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:14px;color:var(--ink)}
+.agwrap .agmini .agmttl{font-weight:800;font-size:13.5px;line-height:1.25;color:var(--ink)}
+.agwrap .agmini .agmspk{font-size:11.5px;font-weight:600;color:var(--blue);line-height:1.3}
+.agwrap .agcard{background:#fff;border:1px solid var(--line);border-left:6px solid var(--line);border-radius:12px;
+  padding:16px 16px 15px;position:relative;display:flex;flex-direction:column;gap:8px;transition:.15s;
+  box-shadow:0 2px 8px rgba(21,35,59,.05)}
+.agwrap .agcard:hover{box-shadow:0 8px 20px rgba(21,35,59,.12);transform:translateY(-2px)}
+.agwrap .agtime{font-weight:800;font-size:16px;color:var(--blue);line-height:1}
+.agwrap .agtime .agdash{color:var(--ink);opacity:.35;font-weight:600}
+.agwrap .agtracktag{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.3px;padding:4px 11px;border-radius:20px;color:var(--ink)}
+.agwrap .agttl{font-weight:800;font-size:16.5px;line-height:1.2;color:var(--ink)}
+.agwrap .agdesc{font-size:13px;line-height:1.5;color:var(--ink);opacity:.78}
+.agwrap .agspk{font-size:12.5px;font-weight:600;color:var(--blue);display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:2px}
+.agwrap .agspk span:before{content:"\2022 ";opacity:.4}
+.agwrap .agbreak{display:flex;align-items:center;justify-content:center;gap:12px;
+  background:#f6f8fb;border:1px dashed #cfd6e0;border-radius:10px;padding:7px 16px;color:var(--muted);font-weight:600;font-size:13px}
+.agwrap .agbreak .agbtime{font-weight:600;font-size:12px;color:var(--ink);opacity:.7}
+.agwrap .agfeature{background:linear-gradient(110deg,#fff,#f3f7ff);border:1px solid var(--line);border-radius:12px;
+  padding:17px 20px;position:relative;border-left:6px solid var(--blue);display:flex;flex-direction:column;gap:7px;box-shadow:0 3px 12px rgba(21,35,59,.07)}
+.agwrap .agfeature.ent{border-left-color:var(--coral);background:linear-gradient(110deg,#fff,#fff4f6)}
+.agwrap .agfeature .agcommon{position:absolute;top:13px;right:15px;font-weight:700;font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+.agwrap .agempty{text-align:center;color:var(--muted);padding:40px;font-size:15px}
+@media(max-width:760px){
+ .agwrap .agbreakgrid{grid-template-columns:repeat(2,1fr)}
+ .agwrap .agmini:nth-child(2n){border-right:none}
+ .agwrap .agbar{position:static}
+ .agwrap .agrow1{flex-direction:column;align-items:stretch}
+ .agwrap .agselects{flex-direction:column}
+ .agwrap select{width:100%}
+ .agwrap .agdays{justify-content:center}
+}
+@media(max-width:460px){.agwrap .agbreakgrid{grid-template-columns:1fr}.agwrap .agmini{border-right:none}}
+@media(prefers-reduced-motion:reduce){.agwrap .agcard,.agwrap .agmini{transition:none}}
+</style>
+
+<div class="agbar">
+  <div class="agrow1">
+    <div class="agdays" id="agDays">
+      <button class="agday on" data-day="fri">Fri 23</button>
+      <button class="agday" data-day="sat">Sat 24</button>
+      <button class="agday" data-day="sun">Sun 25</button>
+    </div>
+    <div class="agselects">
+      <div class="agselect">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#15233b" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg>
+        <select id="agTrack"><option value="all">All tracks</option></select>
+      </div>
+      <div class="agselect">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#15233b" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+        <select id="agTz">
+          <option value="Atlantic/Reykjavik">Iceland</option>
+          <option value="Atlantic/Azores">Azores</option>
+          <option value="Europe/Lisbon">Portugal / Canary Islands</option>
+          <option value="Europe/Madrid">Spain / Germany / Netherlands</option>
+          <option value="Europe/Athens">Latvia / Greece / Cyprus / Bulgaria</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="agpills" id="agPills">
+    <span class="agpilllabel">Topic</span>
+    <button class="agpill on" data-topic="all">All</button>
+    <button class="agpill" data-topic="TBC">TBC</button>
+  </div>
+</div>
+
+<div class="agtzbanner" id="agBanner"></div>
+<div class="agdate" id="agDate"></div>
+<svg class="agspray" viewBox="0 0 200 16" aria-hidden="true"><defs><filter id="agsp"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="w"/><feDisplacementMap in="SourceGraphic" in2="w" scale="9"/></filter></defs><path d="M8 8 H192" stroke="#3885FF" stroke-width="6" stroke-linecap="round" filter="url(#agsp)"/></svg>
+<div class="agslots" id="agSlots"></div>
+
+<script>
+(function(){
+  var DATA = {"tracks":{"t1":{"n":1,"name":"The Democratic Self","c":"#CBE5F6"},"t2":{"n":2,"name":"Deep Democracy, Organizations & DEI","c":"#FAD4D0"},"t3":{"n":3,"name":"Democracy in Governance, Health & Society","c":"#C2FFDB"},"t4":{"n":4,"name":"Digital Democracy, Technology & Futures","c":"#D6C5FC"},"t5":{"n":5,"name":"Democracy in Education & Knowledge","c":"#FCC5E2"},"t6":{"n":6,"name":"Language, Culture, History & Democratic Expression","c":"#FBE7A1"}},"sessions":[{"day":"fri","room":"Plenary","kind":"opening","s":"2026-10-23T13:20:00Z","e":"2026-10-23T13:50:00Z","topic":"TBC","title":"Opening","desc":"Welcome to the OpenEU Festival 2026. The opening of three days of democratic imagination.","speakers":["OpenEU Student Council"],"track":""},{"day":"fri","room":"Plenary","kind":"talk","s":"2026-10-23T13:50:00Z","e":"2026-10-23T14:20:00Z","topic":"TBC","title":"To be confirmed","desc":"Session details to be announced soon.","speakers":[],"track":""},{"day":"fri","room":"Plenary","kind":"talk","s":"2026-10-23T14:20:00Z","e":"2026-10-23T14:50:00Z","topic":"TBC","title":"To be confirmed","desc":"Session details to be announced soon.","speakers":[],"track":""},{"day":"fri","room":"Plenary","kind":"entertainment","s":"2026-10-23T14:50:00Z","e":"2026-10-23T15:00:00Z","topic":"TBC","title":"Icebreaker","desc":"A common moment to warm up and connect with fellow participants.","speakers":[],"track":""},{"day":"fri","room":"Plenary","kind":"talk","s":"2026-10-23T15:00:00Z","e":"2026-10-23T15:30:00Z","topic":"TBC","title":"To be confirmed","desc":"Session details to be announced soon.","speakers":[],"track":""},{"day":"fri","room":"Plenary","kind":"talk","s":"2026-10-23T15:30:00Z","e":"2026-10-23T16:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Session details to be announced soon.","speakers":[],"track":""},{"day":"fri","room":"Plenary","kind":"entertainment","s":"2026-10-23T16:10:00Z","e":"2026-10-23T16:40:00Z","topic":"TBC","title":"Tufān Saadat","desc":"Poetry performance, followed by a raffle. Open to everyone.","speakers":["Tufān Saadat — Poet"],"track":""},{"day":"sat","room":"Plenary","kind":"keynote","s":"2026-10-24T08:30:00Z","e":"2026-10-24T09:00:00Z","topic":"TBC","title":"Keynote","desc":"The opening keynote of day two.","speakers":[],"track":""},{"day":"sat","room":"Plenary","kind":"break","s":"2026-10-24T09:00:00Z","e":"2026-10-24T09:05:00Z","topic":"","title":"Break","desc":"","speakers":[],"track":""},{"day":"sat","room":"Plenary","kind":"talk","s":"2026-10-24T09:05:00Z","e":"2026-10-24T09:35:00Z","topic":"TBC","title":"To be confirmed","desc":"Session details to be announced soon.","speakers":[],"track":""},{"day":"sat","room":"Plenary","kind":"break","s":"2026-10-24T09:35:00Z","e":"2026-10-24T09:40:00Z","topic":"","title":"Break","desc":"","speakers":[],"track":""},{"day":"sat","room":"Plenary","kind":"talk","s":"2026-10-24T09:40:00Z","e":"2026-10-24T10:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Session details to be announced soon.","speakers":[],"track":""},{"day":"sat","room":"Plenary","kind":"break","s":"2026-10-24T10:10:00Z","e":"2026-10-24T10:20:00Z","topic":"","title":"Break","desc":"","speakers":[],"track":""},{"day":"sat","room":"Plenary","kind":"conversation","s":"2026-10-24T10:20:00Z","e":"2026-10-24T11:20:00Z","topic":"TBC","title":"To be confirmed","desc":"","speakers":["Francesc Xavier Coller Porta","Salvador Parrado Diez","Odón Elorza"],"track":""},{"day":"sat","room":"Room 1","kind":"breakout","s":"2026-10-24T12:20:00Z","e":"2026-10-24T12:50:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 2","kind":"breakout","s":"2026-10-24T12:20:00Z","e":"2026-10-24T12:50:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 3","kind":"breakout","s":"2026-10-24T12:20:00Z","e":"2026-10-24T12:50:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 4","kind":"breakout","s":"2026-10-24T12:20:00Z","e":"2026-10-24T12:50:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 1","kind":"breakout","s":"2026-10-24T12:50:00Z","e":"2026-10-24T13:20:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 2","kind":"breakout","s":"2026-10-24T12:50:00Z","e":"2026-10-24T13:20:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 3","kind":"breakout","s":"2026-10-24T12:50:00Z","e":"2026-10-24T13:20:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 4","kind":"breakout","s":"2026-10-24T12:50:00Z","e":"2026-10-24T13:20:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Plenary","kind":"break","s":"2026-10-24T13:20:00Z","e":"2026-10-24T13:30:00Z","topic":"","title":"Break","desc":"","speakers":[],"track":""},{"day":"sat","room":"Room 1","kind":"breakout","s":"2026-10-24T13:30:00Z","e":"2026-10-24T14:00:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 2","kind":"breakout","s":"2026-10-24T13:30:00Z","e":"2026-10-24T14:00:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 3","kind":"breakout","s":"2026-10-24T13:30:00Z","e":"2026-10-24T14:00:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 4","kind":"breakout","s":"2026-10-24T13:30:00Z","e":"2026-10-24T14:00:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 1","kind":"breakout","s":"2026-10-24T14:00:00Z","e":"2026-10-24T14:30:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 2","kind":"breakout","s":"2026-10-24T14:00:00Z","e":"2026-10-24T14:30:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 3","kind":"breakout","s":"2026-10-24T14:00:00Z","e":"2026-10-24T14:30:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 4","kind":"breakout","s":"2026-10-24T14:00:00Z","e":"2026-10-24T14:30:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Plenary","kind":"break","s":"2026-10-24T14:30:00Z","e":"2026-10-24T14:40:00Z","topic":"","title":"Break","desc":"","speakers":[],"track":""},{"day":"sat","room":"Room 1","kind":"breakout","s":"2026-10-24T14:40:00Z","e":"2026-10-24T15:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 2","kind":"breakout","s":"2026-10-24T14:40:00Z","e":"2026-10-24T15:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 3","kind":"breakout","s":"2026-10-24T14:40:00Z","e":"2026-10-24T15:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 4","kind":"breakout","s":"2026-10-24T14:40:00Z","e":"2026-10-24T15:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 1","kind":"breakout","s":"2026-10-24T15:10:00Z","e":"2026-10-24T15:40:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 2","kind":"breakout","s":"2026-10-24T15:10:00Z","e":"2026-10-24T15:40:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 3","kind":"breakout","s":"2026-10-24T15:10:00Z","e":"2026-10-24T15:40:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 4","kind":"breakout","s":"2026-10-24T15:10:00Z","e":"2026-10-24T15:40:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Plenary","kind":"entertainment","s":"2026-10-24T15:40:00Z","e":"2026-10-24T16:10:00Z","topic":"TBC","title":"Helgi Steinar","desc":"Stand-up comedy — the comedian will also announce the raffle winner. Open to everyone.","speakers":["Helgi Steinar — Comedian"],"track":""},{"day":"sat","room":"Room 1","kind":"breakout","s":"2026-10-24T16:10:00Z","e":"2026-10-24T16:40:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 2","kind":"breakout","s":"2026-10-24T16:10:00Z","e":"2026-10-24T16:40:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 3","kind":"breakout","s":"2026-10-24T16:10:00Z","e":"2026-10-24T16:40:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 4","kind":"breakout","s":"2026-10-24T16:10:00Z","e":"2026-10-24T16:40:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 1","kind":"breakout","s":"2026-10-24T16:40:00Z","e":"2026-10-24T17:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 2","kind":"breakout","s":"2026-10-24T16:40:00Z","e":"2026-10-24T17:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 3","kind":"breakout","s":"2026-10-24T16:40:00Z","e":"2026-10-24T17:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sat","room":"Room 4","kind":"breakout","s":"2026-10-24T16:40:00Z","e":"2026-10-24T17:10:00Z","topic":"TBC","title":"To be confirmed","desc":"Parallel session. Choose the talk you'd like to attend. Details to be announced.","speakers":[],"track":""},{"day":"sun","room":"Room 1","kind":"breakout","s":"2026-10-25T10:00:00Z","e":"2026-10-25T11:00:00Z","topic":"TBC","title":"Workshop — to be confirmed","desc":"Parallel workshop. Choose the one you'd like to join. Details to be announced.","speakers":[],"track":""},{"day":"sun","room":"Room 2","kind":"breakout","s":"2026-10-25T10:00:00Z","e":"2026-10-25T11:00:00Z","topic":"TBC","title":"Workshop — to be confirmed","desc":"Parallel workshop. Choose the one you'd like to join. Details to be announced.","speakers":[],"track":""},{"day":"sun","room":"Room 3","kind":"breakout","s":"2026-10-25T10:00:00Z","e":"2026-10-25T11:00:00Z","topic":"TBC","title":"Workshop — to be confirmed","desc":"Parallel workshop. Choose the one you'd like to join. Details to be announced.","speakers":[],"track":""},{"day":"sun","room":"Room 4","kind":"breakout","s":"2026-10-25T10:00:00Z","e":"2026-10-25T11:00:00Z","topic":"TBC","title":"Workshop — to be confirmed","desc":"Parallel workshop. Choose the one you'd like to join. Details to be announced.","speakers":[],"track":""},{"day":"sun","room":"Plenary","kind":"entertainment","s":"2026-10-25T11:00:00Z","e":"2026-10-25T11:30:00Z","topic":"TBC","title":"The Harvest + DJ","desc":"Closing celebration with The Harvest, a DJ set, and the final raffle. Everyone together.","speakers":[],"track":""}]};
+  var TRACKS = DATA.tracks, SESSIONS = DATA.sessions;
+  var tzNames = {"Atlantic/Reykjavik":"Iceland","Atlantic/Azores":"Azores","Europe/Lisbon":"Portugal / Canary Islands","Europe/Madrid":"Spain / Germany / Netherlands","Europe/Athens":"Latvia / Greece / Cyprus / Bulgaria"};
+  var dayLabels = {fri:"Friday, 23 October 2026", sat:"Saturday, 24 October 2026", sun:"Sunday, 25 October 2026"};
+  var state = {day:"fri", track:"all", topic:"all", tz:"Europe/Madrid"};
+  try{
+    var detected = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if(tzNames[detected]) state.tz = detected;
+    var map={"Europe/Berlin":"Europe/Madrid","Europe/Amsterdam":"Europe/Madrid","Europe/Paris":"Europe/Madrid","Europe/Riga":"Europe/Athens","Europe/Nicosia":"Europe/Athens","Europe/Sofia":"Europe/Athens","Atlantic/Canary":"Europe/Lisbon"};
+    if(map[detected]) state.tz=map[detected];
+  }catch(e){}
+  function fmtTime(iso,tz){return new Intl.DateTimeFormat('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(iso));}
+  function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function $(id){return document.getElementById(id);}
+  var daysEl=$('agDays'),trackEl=$('agTrack'),pillsEl=$('agPills'),tzEl=$('agTz'),slotsEl=$('agSlots'),dateEl=$('agDate'),bannerEl=$('agBanner');
+  tzEl.value=state.tz;
+  Object.keys(TRACKS).forEach(function(id){var t=TRACKS[id];var o=document.createElement('option');o.value=id;o.textContent='Track '+t.n+' — '+t.name;trackEl.appendChild(o);});
+  function spk(s){return s.speakers&&s.speakers.length?'<div class="agspk">'+s.speakers.map(function(x){return '<span>'+esc(x)+'</span>';}).join('')+'</div>':'';}
+  function miniSpk(s){return s.speakers&&s.speakers.length?'<div class="agmspk">'+s.speakers.map(esc).join(', ')+'</div>':'';}
+  function miniCard(s){
+    var tr=s.track&&TRACKS[s.track]?TRACKS[s.track]:null;
+    var tag=tr?'<span class="agtracktag" style="background:'+tr.c+'">Track '+tr.n+'</span>':'';
+    return '<div class="agmini" style="border-top-color:'+(tr?tr.c:'var(--line)')+'">'+
+      '<div class="agroom">'+esc(s.room||'')+'</div>'+tag+
+      '<div class="agmttl">'+esc(s.title)+'</div>'+miniSpk(s)+'</div>';
+  }
+  function parallelBlock(time1,time2,cards){
+    return '<div class="agparallel"><div class="agphead">'+
+      '<span class="agptime">'+time1+' <span class="agdash">-</span> '+time2+'</span>'+
+      '<span class="agpmeta">4 sessions at the same time &mdash; choose one</span>'+
+      '<span class="agptz">'+esc(tzNames[state.tz])+' time</span></div>'+
+      '<div class="agbreakgrid">'+cards+'</div></div>';
+  }
+  function card(s){
+    var tr=s.track&&TRACKS[s.track]?TRACKS[s.track]:null;
+    var border=tr?tr.c:'var(--line)';
+    var tag=tr?'<span class="agtracktag" style="background:'+tr.c+'">Track '+tr.n+'</span>':'';
+    return '<div class="agcard" style="border-left-color:'+border+'">'+
+      '<div class="agtime">'+fmtTime(s.s,state.tz)+' <span class="agdash">-</span> '+fmtTime(s.e,state.tz)+'</div>'+tag+
+      '<div class="agttl">'+esc(s.title)+'</div><div class="agdesc">'+esc(s.desc)+'</div>'+spk(s)+'</div>';
+  }
+  function feature(s){
+    var ent=s.kind==='entertainment'?' ent':'';
+    var lbl=s.kind==='entertainment'?'Everyone together':(s.kind==='keynote'?'Keynote':(s.kind==='opening'?'Opening':(s.kind==='conversation'?'Conversation':'Plenary')));
+    return '<div class="agfeature'+ent+'"><div class="agcommon">'+lbl+'</div>'+
+      '<div class="agtime">'+fmtTime(s.s,state.tz)+' <span class="agdash">-</span> '+fmtTime(s.e,state.tz)+'</div>'+
+      '<div class="agttl">'+esc(s.title)+'</div>'+(s.desc?'<div class="agdesc">'+esc(s.desc)+'</div>':'')+spk(s)+'</div>';
+  }
+  function breakBar(s){return '<div class="agbreak"><span class="agbtime">'+fmtTime(s.s,state.tz)+'\u2013'+fmtTime(s.e,state.tz)+'</span><span>'+esc(s.title)+'</span></div>';}
+  function matches(s){
+    if(s.day!==state.day)return false;
+    if(s.kind==='break')return true;
+    if(state.track!=='all'&&s.track!==state.track)return false;
+    if(state.topic!=='all'&&s.topic!==state.topic)return false;
+    return true;
+  }
+  function render(){
+    dateEl.textContent=dayLabels[state.day];
+    bannerEl.innerHTML='All times shown in <b>'+esc(tzNames[state.tz])+'</b> local time. Change "Your location" to see the schedule where you are.';
+    var list=SESSIONS.filter(matches).sort(function(a,b){return new Date(a.s)-new Date(b.s);});
+    var nonBreak=list.filter(function(x){return x.kind!=='break';});
+    if(!nonBreak.length){slotsEl.innerHTML='<div class="agempty">No sessions match these filters on this day.</div>';return;}
+    var groups={},order=[];
+    list.forEach(function(s){if(!groups[s.s]){groups[s.s]=[];order.push(s.s);}groups[s.s].push(s);});
+    var html='';
+    order.forEach(function(k){
+      var g=groups[k];
+      var isPar=g.length>1&&g.every(function(x){return x.kind==='breakout';});
+      if(isPar){
+        g.sort(function(a,b){return (a.room||'').localeCompare(b.room||'');});
+        html+=parallelBlock(fmtTime(g[0].s,state.tz),fmtTime(g[0].e,state.tz),g.map(miniCard).join(''));
+      } else {
+        g.forEach(function(s){
+          if(s.kind==='break')html+=breakBar(s);
+          else if(s.kind==='entertainment'||s.kind==='keynote'||s.kind==='opening'||s.kind==='conversation')html+=feature(s);
+          else html+=card(s);
+        });
+      }
+    });
+    slotsEl.innerHTML=html;
+  }
+  daysEl.addEventListener('click',function(e){var b=e.target.closest('.agday');if(!b)return;state.day=b.dataset.day;[].forEach.call(daysEl.children,function(c){c.classList.toggle('on',c===b);});render();});
+  trackEl.addEventListener('change',function(){state.track=this.value;render();});
+  pillsEl.addEventListener('click',function(e){var b=e.target.closest('.agpill');if(!b)return;state.topic=b.dataset.topic;[].forEach.call(pillsEl.querySelectorAll('.agpill'),function(c){c.classList.toggle('on',c===b);});render();});
+  tzEl.addEventListener('change',function(){state.tz=this.value;render();});
+  render();
+})();
+</script>
+</div>

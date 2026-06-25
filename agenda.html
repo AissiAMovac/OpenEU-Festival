@@ -1,1 +1,141 @@
-<!-- Content of agenda.html -->
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  .tracks-breakout {
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -96px;
+    width: 100vw;
+    background-color: #CBE5F6;
+    padding: 24px 60px 40px 60px;
+    box-sizing: border-box;
+  }
+
+  .tracks-breakout .tracks-intro h2 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    color: #111111;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .tracks-breakout .tracks-intro p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #111111;
+    margin-bottom: 32px;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .tracks-breakout .tracks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .tracks-breakout .track-card {
+    background-color: #ffffff;
+    border-left: 4px solid #FF6B85;
+    padding: 20px 24px 20px 20px;
+  }
+
+  .tracks-breakout .track-card h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: #111111;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .tracks-breakout .track-card .track-subtitle {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: italic;
+    color: #3885FF;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .tracks-breakout .track-card p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #111111;
+    margin: 0;
+    text-align: left;
+  }
+
+  @media (max-width: 900px) {
+    .tracks-breakout .tracks-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tracks-breakout {
+      padding: 24px 24px 40px 24px;
+    }
+    .tracks-breakout .tracks-grid {
+      grid-template-columns: 1fr;
+    }
+    .tracks-breakout .tracks-intro h2 {
+      font-size: 28px;
+    }
+  }
+</style>
+
+<section class="tracks-breakout" id="festival-tracks">
+
+  <div class="tracks-intro">
+    <h2>Festival Tracks</h2>
+    <p>The OpenEU Democracy Festival program is organized into six tracks. These tracks reflect the topics that matter most to our community — shaped by input from participating universities and the OpenEU Student Council. Each track explores democracy from a different angle, together forming a full picture of what democratic life looks like in 2026: inside ourselves, in our institutions, in our classrooms, in our digital tools, on our planet, and in our cultures.</p>
+  </div>
+
+  <div class="tracks-grid">
+
+    <div class="track-card">
+      <h3>Track 1 — The Democratic Self</h3>
+      <p class="track-subtitle">How do we become democratic citizens?</p>
+      <p>Democracy begins in how we listen, care, and participate. This track explores the personal, psychological, and philosophical sides of democracy, including barriers like illness, neurodivergence, and exclusion. It rethinks participation as something that must be accessible and nurtured.</p>
+    </div>
+
+    <div class="track-card">
+      <h3>Track 2 — Deep Democracy, Organizations & DEI</h3>
+      <p class="track-subtitle">What does democracy look like in everyday work and teams?</p>
+      <p>This track explores democratic practices inside organizations, from participatory models to DEI challenges. It examines power imbalances, inclusion, and how democratic structures function in real-life settings.</p>
+    </div>
+
+    <div class="track-card">
+      <h3>Track 3 — Governance, Health & Society</h3>
+      <p class="track-subtitle">Who has power and how do we rebuild trust?</p>
+      <p>Focusing on institutions, rights, and public systems, this track explores how democracy shapes health, housing, and policy. It addresses exclusion, accountability, and ways to strengthen trust and resilience.</p>
+    </div>
+
+    <div class="track-card">
+      <h3>Track 4 — Digital Democracy & Futures</h3>
+      <p class="track-subtitle">Who shapes our technological future?</p>
+      <p>This track examines the risks and potential of digital tools in democracy — from disinformation to civic tech. It explores how to build transparent, inclusive, and future-ready democratic systems.</p>
+    </div>
+
+    <div class="track-card">
+      <h3>Track 5 — Education & Knowledge</h3>
+      <p class="track-subtitle">Who decides what counts as knowledge?</p>
+      <p>This track looks at education as a democratic space, exploring access, power, and inequality. It considers students as active participants and the evolving role of knowledge in society.</p>
+    </div>
+
+    <div class="track-card">
+      <h3>Track 6 — Culture, Language & Expression</h3>
+      <p class="track-subtitle">How does culture shape democracy?</p>
+      <p>Democracy lives in language, art, and history. This track explores multilingualism, cultural expression, and storytelling as key to participation, inclusion, and democratic imagination.</p>
+    </div>
+
+  </div>
+
+</section>

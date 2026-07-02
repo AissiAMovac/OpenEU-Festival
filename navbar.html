@@ -37,7 +37,7 @@
   .festival-nav__links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -61,6 +61,24 @@
 
   .festival-nav__links a:hover {
     color: #3885FF;
+  }
+
+  .festival-nav__cta {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #ffffff !important;
+    background-color: #FF6B85;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+
+  .festival-nav__cta:hover {
+    background-color: #e8527a !important;
+    color: #ffffff !important;
   }
 
   .festival-nav__hamburger {
@@ -113,6 +131,9 @@
     .festival-nav__links {
       display: none;
     }
+    .festival-nav__cta {
+      display: none;
+    }
     .festival-nav__hamburger {
       display: flex;
     }
@@ -130,13 +151,13 @@
     <a href="#" class="festival-nav__logo">OpenEU <span>Festival</span></a>
     <ul class="festival-nav__links">
       <li><a href="#festival-about">About</a></li>
-      <li><a href="#festival-tracks">Tracks</a></li>
       <li><a href="#festival-speakers">Speakers</a></li>
+      <li><a href="#festival-tracks">Tracks</a></li>
       <li><a href="#festival-agenda">Agenda</a></li>
-      <li><a href="#festival-host">Host Institution</a></li>
-      <li><a href="#festival-register">Registration</a></li>
+      <li><a href="#festival-host">Host</a></li>
       <li><a href="#festival-council">Student Council</a></li>
     </ul>
+    <a href="#festival-register" class="festival-nav__cta">Register Now →</a>
     <button class="festival-nav__hamburger" id="festival-nav-hamburger" aria-label="Open menu">
       <span></span>
       <span></span>
@@ -145,12 +166,12 @@
   </div>
   <div class="festival-nav__mobile-menu" id="festival-nav-mobile">
     <a href="#festival-about">About</a>
-    <a href="#festival-tracks">Tracks</a>
     <a href="#festival-speakers">Speakers</a>
+    <a href="#festival-tracks">Tracks</a>
     <a href="#festival-agenda">Agenda</a>
-    <a href="#festival-host">Host Institution</a>
-    <a href="#festival-register">Registration</a>
+    <a href="#festival-host">Host</a>
     <a href="#festival-council">Student Council</a>
+    <a href="#festival-register">Register Now →</a>
   </div>
 </nav>
 

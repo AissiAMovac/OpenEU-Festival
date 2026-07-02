@@ -78,15 +78,17 @@
 
   .speakers-breakout__name {
     font-family: 'Work Sans', sans-serif;
-    font-weight: 800;
+    font-weight: 900 !important;
     font-size: 14px;
-    color: #111111;
+    color: #111111 !important;
     margin-bottom: 2px !important;
     margin-top: 0 !important;
   }
 
   .speakers-breakout__name--tbc {
     font-style: italic;
+    color: #999999 !important;
+    font-weight: 400 !important;
   }
 
   .speakers-breakout__role {
@@ -131,6 +133,48 @@
     color: #555555;
     margin-top: 0 !important;
     text-align: center;
+  }
+
+  .spk-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99998;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .spk-modal-overlay.spk-modal--visible {
+    display: flex;
+  }
+
+  .spk-modal-sheet {
+    background: #ffffff;
+    width: 100%;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 16px 16px 0 0;
+    padding: 24px 20px 40px 20px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #111111;
+    box-shadow: 0 -4px 30px rgba(0,0,0,0.2);
+  }
+
+  .spk-modal-sheet p {
+    margin: 0;
+  }
+
+  .spk-modal-close {
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: #dddddd;
+    border-radius: 2px;
+    margin: 0 auto 20px auto;
+    cursor: pointer;
   }
 
   @media (max-width: 768px) {
@@ -335,13 +379,13 @@
 
     <!-- Speaker 1 - Decidim -->
     <div class="speakers-breakout__card">
-      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain"
-        style="background-image: url('https://storage-8.saas.pokecode.net/ntjo9awqzujbng0ci65wkeevlswj');"
-        data-bio="Decidim is a free and open-source participatory democracy platform used by cities and organisations across Europe.">
+     <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/54uoq3huzuylm67knx2jovkz5nka');"
+        data-bio="Nil Homedes Busquets is a Spanish political scientist and digital public policy expert who serves as the President and Director of the Technical Office for the Decidim Free Software Association. Specializing in civic technology, citizen participation, and technological sovereignty, he focuses on scaling Decidim as a secure piece of digital public infrastructure and a digital commons. His career includes extensive experience as a digital participation consultant at the Fundació Ferrer i Guàrdia, where he collaborated with local social organizations and the Barcelona City Council to implement open-source civic tech tools. Homedes Busquets holds a Master's degree in e-Government and e-Administration from the Universitat Oberta de Catalunya (UOC). Today, he is a prominent advocate for using Free and Open-Source Software (FLOSS) to design democratic spaces, frequently presenting his insights on tech governance and ecosocial planning at major international conferences like FOSDEM and DecidimFest.">
       </div>
-      <p class="speakers-breakout__name">Decidim</p>
-      <p class="speakers-breakout__role">To be announced</p>
-      <p class="speakers-breakout__bio-mobile">Decidim is a free and open-source participatory democracy platform used by cities and organisations across Europe.</p>
+      <p class="speakers-breakout__name">Nil Homedes Busquets</p>
+      <p class="speakers-breakout__role">Director of the Decidim Association and President of the Decidim Free Software Association</p>
+      <p class="speakers-breakout__bio-mobile">Decidim is a free and open-source participatory democracy platform used by cities and organizations across Europe.</p>
     </div>
 
     <!-- Speaker 2 - Paul Zoubkov -->
@@ -351,7 +395,7 @@
         data-bio="Paul Zoubkov is Europe Manager at Democracy Reporting International (DRI), working to strengthen democratic institutions and participation across Europe.">
       </div>
       <p class="speakers-breakout__name">Paul Zoubkov</p>
-      <p class="speakers-breakout__role">Europe Manager<br>Democracy Reporting International (DRI)</p>
+      <p class="speakers-breakout__role">Head of Global Programmes & Knowledge<br>Democracy Reporting International (DRI)</p>
       <p class="speakers-breakout__bio-mobile">Paul Zoubkov is Europe Manager at Democracy Reporting International (DRI), working to strengthen democratic institutions and participation across Europe.</p>
     </div>
 
@@ -362,7 +406,7 @@
         data-bio="Athina Karatzogianni is Professor of Technology and Society at the University of Leicester, specialising in digital activism and the politics of technology.">
       </div>
       <p class="speakers-breakout__name">Athina Karatzogianni</p>
-      <p class="speakers-breakout__role">Professor of Technology and Society<br>University of Leicester</p>
+      <p class="speakers-breakout__role">Professor of Technology and Society<br>University of Leicester, UK</p>
       <p class="speakers-breakout__bio-mobile">Athina Karatzogianni is Professor of Technology and Society at the University of Leicester, specialising in digital activism and the politics of technology.</p>
     </div>
 
@@ -388,21 +432,21 @@
       <p class="speakers-breakout__bio-mobile">Repair Cafés are free meeting places and they're all about repairing things (together). You'll find tools, materials and expert volunteers to help repair clothes, furniture, electrical appliances, bicycles, toys and more. There are over 2,500 Repair Cafés worldwide.</p>
     </div>
 
-    <!-- Speaker 6 - The Sámi Parliament -->
+    <!-- Speaker 6 - Sandra Márjá West -->
     <div class="speakers-breakout__card">
-      <div class="speakers-breakout__photo-wrap"
-        style="background-image: url('https://storage-8.saas.pokecode.net/99prqi9p8j7teuy7ouaukldynx2z'); background-size: 65%; background-position: center center;"
-        data-bio="The Sami Parliament of Norway (Sámediggi) is a representative, elected body established in 1989 to strengthen Sami political position and enable self-determination in cultural matters. Comprising 39 members elected every four years from seven constituencies, it operates in Karasjok, serving as an advisory, rather than legislative, body regarding Sami culture, language, and land rights.">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/3vzd7g7ac52qoogdegz81k67qbft');"
+        data-bio="Sandra Márjá West is the Chair of the Plenary of the Sámi Parliament in Norway. She has been an elected member of parliament since 2013 for Norwegian Sami Association (NSR). West is coastal Sámi from Gáivuotna/Kåfjord, now residing in Romsa/Tromsø. West is a trained goldsmith and duojár, and has a bachelor's degree in Russian studies from the University of Tromsø.">
       </div>
-      <p class="speakers-breakout__name speakers-breakout__name--tbc">The Sámi Parliament</p>
-      <p class="speakers-breakout__role speakers-breakout__role--tbc">To be announced</p>
+      <p class="speakers-breakout__name">Sandra Márjá West</p>
+      <p class="speakers-breakout__role">Chair of the Plenary<br>The Sámi Parliament in Norway</p>
       <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
     </div>
 
     <!-- Speaker 7 - Vlad Vexler -->
     <div class="speakers-breakout__card">
       <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
-        style="background-image: url('https://storage-8.saas.pokecode.net/xr9a385ojzkil6om30uv50cc9ro7');"
+        style="background-image: url('https://storage-8.saas.pokecode.net/97e0okverkeufdm8g7t9y2ifxwe7');"
         data-bio="Born in Soviet Moscow in 1981, Vlad grew up with four generations under one roof — including a great-grandmother who had survived the Russian Revolution. His childhood was marked by rationing and empty supermarket shelves. A vivid early memory: queuing for hours, aged 9, to visit Moscow's first McDonald's when it opened in 1991. As the economy collapsed, his family fled to Israel, then later to the UK, where Vlad became a British citizen and made his home in London. He has also lived in Australia and Tonga. In 2003, during postgraduate studies at Oxford, he contracted Myalgic Encephalomyelitis (M.E.) — a serious neurological condition clinicians consider as debilitating as HIV or MS. He was unable to walk, talk or read for two years. Today he is largely housebound, managing his symptoms daily. Living with M.E. gives Vlad a rare and hard-won perspective on disability, on the tragic, and on the unexpected beauty found within it.">
       </div>
       <p class="speakers-breakout__name">Vlad Vexler</p>
@@ -432,18 +476,261 @@
       <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
     </div>
 
-    <!-- Speaker 10 - TBC -->
+    <!-- Speaker 10 - Jean-Claude Burgelman -->
     <div class="speakers-breakout__card">
-      <div class="speakers-breakout__photo-wrap"
-        style="background-image: url('https://storage-8.saas.pokecode.net/yxz8ewzr6w8twx89jh0bjseypi0n'); background-size: 65%; background-position: center center;"
-        data-bio="Speaker bio to be announced.">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/91h7rp8lixg3t0yb6rcin28v3zty');"
+        data-bio="Jean-Claude Burgelman is Professor of Open Science at the Free University of Brussels. He retired in 2020 from the European Commission, where he led Open Science policy at DG RTD from 2014, shaping the EU's frameworks on open access, open data, and the European Open Science Cloud. Earlier roles included the Bureau of European Policy Advisers and the Joint Research Centre. He has chaired the World Economic Forum's Global Agenda Council on Innovation and serves on several academic boards. He is currently Director of the Frontiers Planet Prize and Editor in Chief of Frontiers Policy Lab.">
       </div>
-      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
-      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
+      <p class="speakers-breakout__name">Jean-Claude Burgelman</p>
+      <p class="speakers-breakout__role">Professor of Open Science Policy at the Free University of Brussels (VUB)<br>Brussels, Belgium</p>
+      <p class="speakers-breakout__bio-mobile"></p>
+    </div>
+
+    <!-- Speaker 11 - Nina Paley -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/pgxrmm4rjqmktkewrbmflaogsieq');"
+        data-bio="Nina Paley (born May 3, 1968) is an American cartoonist, animator, and free culture activist. She is globally acclaimed for creating the award-winning 2008 animated feature film Sita Sings the Blues. Paley is also widely celebrated for her pioneering work in copyleft and intellectual freedom, famously distributing her works under open licenses.">
+      </div>
+      <p class="speakers-breakout__name">Nina Paley</p>
+      <p class="speakers-breakout__role">Animator · Director · Artist</p>
       <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
     </div>
 
-    <!-- Speaker 11 - TBC -->
+    <!-- Speaker 12 - Kosta Karakashyan -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/infx61ys5ix6y6q3kfdvcnukuk93'); background-size: 100%;"
+        data-bio="Kosta Karakashyan is a director, writer, and choreographer working across film, theatre, and immersive experiences. After studying at Columbia University in New York and performing on stages around the world on Dancing with the Stars, he has gone on to direct projects for Calvin Klein, H&M, and Greenpeace. His aesthetic combines the intimacy of the body in motion with a contemporary visual sensibility shaped by pop culture, fashion, and spectacle. With a background in dance, Kosta brings a unique movement-driven approach to directing, crafting emotionally charged worlds that resonate on a visceral level across commercial, narrative, and socially engaged work. Kosta is a Forbes 30 Under 30 Europe honoree, a Berlinale Talents alumni, and a member of the European Film Academy. His work has been featured by NOWNESS, The New Yorker, The Guardian, ELLE, Bloomberg, BBC Radio, and Radio Free Europe. A graduate of the Human Rights & Democratization program at the Global Campus of Human Rights in Venice, Kosta is committed to telling stories that center marginalized voices and expand our understanding of personal truth, intimacy, and humanity. He sees filmmaking and theatre as ways to explore empathy through movement and storytelling.">
+      </div>
+      <p class="speakers-breakout__name">Kosta Karakashyan</p>
+      <p class="speakers-breakout__role">Director · Writer ·  Choreographer</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 13 - Giuseppe Porcaro -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/dhs14g85ytiowi8r75i95ysr89ha');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name">Giuseppe Porcaro</p>
+      <p class="speakers-breakout__role">Political Geographer · Writer · Communications, International Relations, & European Politics Expert</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 14 - Julieta Arancio -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/fdaxxyp7t7olpi8wo5eiyqg27u1a');"
+        data-bio="Julieta Arancio is a social scientist and community organizer based in Berlin, Germany. She has been actively involved in the open science hardware movement since 2017 and currently serves on the Board of Directors of the Open Science Hardware Foundation. Julieta holds a PhD in science and technology studies from Argentina and has conducted postdoctoral research at Drexel University (USA) and the University of Bath (UK). She currently works as a Senior Advisor at the Open Research Community Accelerator (USA) and as a consultant for UNESCO at the intersection of open science, open-source technologies and science policy.">
+      </div>
+      <p class="speakers-breakout__name">Julieta Arancio</p>
+      <p class="speakers-breakout__role">Researcher and Community Organizer of Science Policy, Open Hardware, and the Knowledge Commons.</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 15 - Elena Maculan -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/f1ade8jqhpbd53a8s1mzq1hcupmg');"
+        data-bio="Elena Maculan is a tenured Professor of Criminal Law at UNED (Spain's National Distance Education University), where she also currently serves as Secretary General. She holds dual doctorates — in Comparative and European Legal Studies from the University of Trento and in Peace and International Security from UNED — both awarded with extraordinary prizes and the title of Doctor Europeus. Prior to her current role, she was a postdoctoral researcher under Spain's prestigious Ramón y Cajal programme and an Associate Professor at the University of Trento. Her research focuses on transitional justice, international criminal law, restorative justice, and terrorism offences. She coordinates the Latin American Study Group on International Criminal Law (Konrad Adenauer Foundation) and sits on the editorial boards of the International Criminal Law Review and the Revista de Derecho Penal y Criminología.">
+      </div>
+      <p class="speakers-breakout__name">Elena Maculan</p>
+      <p class="speakers-breakout__role">Tenured Professor<br>Department of Criminal Law and Criminology<br>UNED, Spain</p>
+      <p class="speakers-breakout__bio-mobile"></p>
+    </div>
+
+    <!-- Speaker 16 - Mariano Melendo Pardos -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/u426nek4dlkz30juw40beczwojl4');"
+        data-bio="Born in Santurtzi (Biscay) in 1966 and raised in Zaragoza, where he obtained his Law degree in 1989. He began his doctoral studies under the supervision of Professor José Cerezo Mir, with whom he later moved to UNED, where he completed his doctorate with an extraordinary prize in 2001. He has held a position as tenured Professor of Criminal Law at UNED since 2007. His research focuses on the general part of Criminal Law — both domestic and international — as well as Criminal Policy, with several publications in these areas and participation in numerous national and international congresses and seminars. At UNED, he has collaborated on undergraduate textbooks, contributed to the implementation of the Criminology degree, and in 2019 founded the Centre for Prevention, Conflict Resolution and Inspection, which he currently directs. Since 2024, he also serves as responsible for UNED's internal information system and remains involved with the Pacto de Convivencia platform on restorative university practices.">
+      </div>
+      <p class="speakers-breakout__name">Mariano Melendo Pardos</p>
+      <p class="speakers-breakout__role">Tenured University Professor in Criminal Law and Criminology<br>Faculty of Law<br>UNED, Spain</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 17 - Laura Delgado Carrillo -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/vpcros4ifkqj0gg0ysza7ojxlkro');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name">Laura Delgado Carrillo</p>
+      <p class="speakers-breakout__role">Criminology Degree Coordinator & Permanent professor<br>Faculty of Law<br>UNED, Spain</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 18 - Francesc Xavier Coller Porta -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/4livwhfmqijcmydnnd7irt108lp9');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name">Francesc Xavier Coller Porta</p>
+      <p class="speakers-breakout__role">Coordinator of the PhD Program in Political Science & Full professor<br>Political science and public administration<br>Faculty of political science and sociology<br>UNED, Spain</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 19 - Salvador Parrado Diez -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/x62s3leaawdf2dr4og6y9xsdnbf7');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name">Salvador Parrado Diez</p>
+      <p class="speakers-breakout__role">Full professor of Political science and public administration<br>Faculty of political science and sociology<br>UNED, Spain</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+ <!-- Speaker 20 - Odón Elorza -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/1ll668s67bsksnvbaxiu37c6fsdv');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name">Odón Elorza</p>
+      <p class="speakers-breakout__role speakers-breakout__role">Former Member of Parliament of Guipuzkoa<br>Spain</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 21 - Natàlia Cantó Milà -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--contain-large"
+        style="background-image: url('https://storage-8.saas.pokecode.net/dmvbdf4gnrqjdu7hszaw8fqn0290');"
+        data-bio="The R&D activities of researcher Natàlia Cantó Milà focus on the study of social production of subjectivity in contemporary society from the perspectives of cultural studies, the sociology and history of culture, philosophy, the media and art history and theory. With a cross-cutting viewpoint gained from theoretical and empirical research into the fields of art, popular culture and current culture, as well as participation in social debates on culture, this research group focuses on the transformation of the link between culture and society as a consequence of the development of the consumer society and technological means in contemporary society and global capitalism. She is a member of the UOC's GlobaLS (Global Literary Studies Research Group) R&D group.">
+      </div>
+      <p class="speakers-breakout__name">Natàlia Cantó Milà</p>
+      <p class="speakers-breakout__role">Associated Professor<br>Doctoral School<br>Arts and Humanities Department<br>Universitat Oberta de Catalunya, Spain</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 22 - Efraín Foglia Romero -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap"
+        style="background-image: url('https://storage-8.saas.pokecode.net/2w9rr3iesicv7v0q84j61g3ulckd');"
+        data-bio="Designer of digital interactions, researcher and teacher. He holds a doctoral degree in Fine Art from the University of Barcelona. His work focuses on the intersection between design, citizen activism and network technologies. His research ranges from neuroscience and its relationship with alternative communication to infrastructures based on mesh networks, including the possible futures of internet and the new design paradigms. He is a founding member of guifi.net, the world's largest self-managed telecommunications network, and in 2011 he founded Mobilitylab, a platform for designing physical and digital interactions.">
+      </div>
+      <p class="speakers-breakout__name">Efraín Foglia Romero</p>
+      <p class="speakers-breakout__role">Lecturer<br>Information & Communication Sciences Department<br>Universitat Oberta de Catalunya, Spain</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 23 - Atli Þór Fanndal Guðlaugsson -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/etl0nenaa49apdffvsnvo5hs2860');"
+        data-bio="Atli Thor Fanndal is a Project Manager in the Rector's Office at Bifröst University and a former Director of Space Iceland. His work spans research, innovation, democratic governance, and the societal applications of emerging technologies. Drawing on experience in investigative journalism, anti-corruption advocacy, and space policy, he examines how open-access satellite data can empower citizens, strengthen accountability, and support evidence-based public debate in democratic societies.">
+      </div>
+      <p class="speakers-breakout__name">Atli Þór Fanndal Guðlaugsson</p>
+      <p class="speakers-breakout__role">Project Manager at the Rector's Office<br>Bifröst University, Iceland</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 24 - Sævar Ari Finnbogason -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/g3295p32jgkqe7z23roib8gtxumx');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name">Sævar Ari Finnbogason</p>
+      <p class="speakers-breakout__role">Adjunct professor<br>Faculty of Social Sciences<br>University of Bifröst, Iceland</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 25 - Erla Rún Guðmundsdóttir -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/4bfll341ihnoalrcg6d9ow15wxs6');"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name">Erla Rún Guðmundsdóttir</p>
+      <p class="speakers-breakout__role">Director of the Research Center for Creative Industries<br>University of Bifröst, Iceland</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 26 - Margarita Mavrodieva Kaleynska -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/x2wabjfitivhlgsv550tn8mrkwc8');background-size: 100%;"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name">Margarita Mavrodieva Kaleynska</p>
+      <p class="speakers-breakout__role">Senior Assistant Professor<br>Faculty of Education<br>UVT, Bulgaria</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 27 - The European Correspondent -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--medium"
+        style="background-image: url('https://storage-8.saas.pokecode.net/4yqpnxwl8hv6jv1twzll4tilmqac');"
+        data-bio="Julius E. O. Fintelmann is co-founder and editor-in-chief of The European Correspondent, a pan-European media organisation focused on showing how this continent's citizens are impacted by what's going on around Europe. ">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name">Julius E. O. Fintelmann</p>
+      <p class="speakers-breakout__role speakers-breakout__role">Co-founder and Editor-in-chief<br>The European Correspondent</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 28 - Ana Brochado -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/xnxb6nq10opg2d9f8k0btt8ke9fp'); background-size: 100%;"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name">Ana Brochado</p>
+      <p class="speakers-breakout__role speakers-breakout__role">Full Professor<br>Management & Social Sciences Department<br> Universidade Aberta, Portugal</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 29 - André Pereira Matos -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/yzax5zx2zx0v6rzznfr05ro8v7mg');background-size: 100%;"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name">André Pereira Matos</p>
+      <p class="speakers-breakout__role speakers-breakout__role"> Assistant Professor<br>Department of Humanities<br>Universidade Aberta, Portugal
+</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 30 - Angela Machado -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/83xi2zpv17nfal27lwc1q0qj2jdr');background-size: 100%;"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name">Angela Machado</p>
+      <p class="speakers-breakout__role speakers-breakout__role">Assistant Professor<br>Management & Social Sciences Department<br>Universidade Aberta, Portugal</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 31 - Patrícia Palma -->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/xlcc3ciglfqinyr25b10s3mb6e4w');background-size: 120%;"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name">Patrícia Palma</p>
+      <p class="speakers-breakout__role speakers-breakout__role">Associate Professor<br>Management & Social Sciences Department<br>Universidade Aberta, Portugal</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 32 - Séfora Silva-->
+    <div class="speakers-breakout__card">
+      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
+        style="background-image: url('https://storage-8.saas.pokecode.net/7gxbb7wjq2zi0wttivtf1205abkt');background-size: 100%;"
+        data-bio="Speaker bio to be announced.">
+      </div>
+      <p class="speakers-breakout__name speakers-breakout__name">Séfora Silva</p>
+      <p class="speakers-breakout__role speakers-breakout__role">Head of the Local Learning Centre (CLA)<br>Universidade Aberta<br>Porto de Mós, Portugal</p>
+      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
+    </div>
+
+    <!-- Speaker 33 - TBC -->
     <div class="speakers-breakout__card">
       <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
         style="background-image: url('https://storage-8.saas.pokecode.net/hby9zox395f0zks7u5fz5zjlox4d');"
@@ -454,10 +741,10 @@
       <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
     </div>
 
-    <!-- Speaker 12 - TBC -->
+    <!-- Speaker 34 - TBC -->
     <div class="speakers-breakout__card">
       <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
-        style="background-image: url('https://storage-8.saas.pokecode.net/0ogaj1n6kh2ejcofa69lbc1haucv');"
+        style="background-image: url('https://storage-8.saas.pokecode.net/yxz8ewzr6w8twx89jh0bjseypi0n');"
         data-bio="Speaker bio to be announced.">
       </div>
       <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
@@ -465,7 +752,7 @@
       <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
     </div>
 
-    <!-- Speaker 13 - TBC -->
+    <!-- Speaker 35 - TBC -->
     <div class="speakers-breakout__card">
       <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
         style="background-image: url('https://storage-8.saas.pokecode.net/rbyt2kcpnpvi5lx67v24n7gxf5jx');"
@@ -476,29 +763,7 @@
       <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
     </div>
 
-    <!-- Speaker 14 - TBC -->
-    <div class="speakers-breakout__card">
-      <div class="speakers-breakout__photo-wrap"
-        style="background-image: url('https://storage-8.saas.pokecode.net/yxz8ewzr6w8twx89jh0bjseypi0n'); background-size: 65%; background-position: center center;"
-        data-bio="Speaker bio to be announced.">
-      </div>
-      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
-      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
-      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
-    </div>
-
-    <!-- Speaker 15 - TBC -->
-    <div class="speakers-breakout__card">
-      <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
-        style="background-image: url('https://storage-8.saas.pokecode.net/hby9zox395f0zks7u5fz5zjlox4d');"
-        data-bio="Speaker bio to be announced.">
-      </div>
-      <p class="speakers-breakout__name speakers-breakout__name--tbc">To be announced</p>
-      <p class="speakers-breakout__role speakers-breakout__role--tbc">TBC</p>
-      <p class="speakers-breakout__bio-mobile">Speaker bio to be announced.</p>
-    </div>
-
-    <!-- Speaker 16 - TBC -->
+    <!-- Speaker 36 - TBC -->
     <div class="speakers-breakout__card">
       <div class="speakers-breakout__photo-wrap speakers-breakout__photo-wrap--small"
         style="background-image: url('https://storage-8.saas.pokecode.net/0ogaj1n6kh2ejcofa69lbc1haucv');"
@@ -519,9 +784,29 @@
     var tooltipWidth = 240;
     var margin = 12;
     var photos = document.querySelectorAll('.speakers-breakout__photo-wrap');
+    var isMobile = function() { return window.innerWidth <= 900; };
+
+    var overlay = document.createElement('div');
+    overlay.className = 'spk-modal-overlay';
+    var sheet = document.createElement('div');
+    sheet.className = 'spk-modal-sheet';
+    var handle = document.createElement('div');
+    handle.className = 'spk-modal-close';
+    sheet.appendChild(handle);
+    var sheetText = document.createElement('p');
+    sheet.appendChild(sheetText);
+    overlay.appendChild(sheet);
+    document.body.appendChild(overlay);
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay || e.target === handle) {
+        overlay.classList.remove('spk-modal--visible');
+      }
+    });
 
     photos.forEach(function(photo) {
       photo.addEventListener('mouseenter', function(e) {
+        if (isMobile()) return;
         var bio = this.getAttribute('data-bio');
         if (!bio) return;
         tooltip.textContent = bio;
@@ -529,23 +814,30 @@
         positionTooltip(e);
       });
       photo.addEventListener('mousemove', function(e) {
+        if (isMobile()) return;
         positionTooltip(e);
       });
       photo.addEventListener('mouseleave', function() {
+        if (isMobile()) return;
         tooltip.classList.remove('spk-tooltip--visible');
       });
       photo.addEventListener('click', function(e) {
         var bio = this.getAttribute('data-bio');
         if (!bio) return;
-        if (tooltip.classList.contains('spk-tooltip--visible') &&
-            tooltip.getAttribute('data-active') === bio) {
-          tooltip.classList.remove('spk-tooltip--visible');
-          tooltip.removeAttribute('data-active');
+        if (isMobile()) {
+          sheetText.textContent = bio;
+          overlay.classList.add('spk-modal--visible');
         } else {
-          tooltip.textContent = bio;
-          tooltip.setAttribute('data-active', bio);
-          tooltip.classList.add('spk-tooltip--visible');
-          positionTooltipCenter(this);
+          if (tooltip.classList.contains('spk-tooltip--visible') &&
+              tooltip.getAttribute('data-active') === bio) {
+            tooltip.classList.remove('spk-tooltip--visible');
+            tooltip.removeAttribute('data-active');
+          } else {
+            tooltip.textContent = bio;
+            tooltip.setAttribute('data-active', bio);
+            tooltip.classList.add('spk-tooltip--visible');
+            positionTooltipCenter(this);
+          }
         }
       });
     });
@@ -585,9 +877,7 @@
 
   (function() {
     var nav = document.getElementById('festival-nav');
-
     nav.style.top = '0px';
-
     window.addEventListener('scroll', function() {
       if (window.scrollY > 50) {
         nav.classList.add('festival-nav--visible');
@@ -595,7 +885,6 @@
         nav.classList.remove('festival-nav--visible');
       }
     });
-
     document.querySelectorAll('.festival-nav a[href^="#"], .festival-nav__mobile-scroll a[href^="#"]').forEach(function(link) {
       link.addEventListener('click', function(e) {
         var target = document.querySelector(this.getAttribute('href'));

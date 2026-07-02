@@ -1,1 +1,94 @@
-<!-- Content of quote-1.html -->
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  .quote-glow {
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -96px;
+    width: 100vw;
+    background-color: #FAF9F6;
+    padding: 20px 60px 50px 60px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+  .quote-glow__card {
+    position: relative;
+    border-radius: 12px;
+    padding: 8px;
+    width: 70%;
+    max-width: 800px;
+    background: linear-gradient(
+      135deg,
+      #CBE5F6 0%,
+      #FCC5E2 25%,
+      #D6C5FC 50%,
+      #C2FFDB 75%,
+      #CBE5F6 100%
+    );
+    box-shadow:
+      0 0 30px 10px rgba(203, 229, 246, 0.6),
+      0 0 60px 20px rgba(252, 197, 226, 0.4),
+      0 0 90px 30px rgba(214, 197, 252, 0.3);
+    display: flex;
+    align-items: stretch;
+  }
+  .quote-glow__card__inner {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 28px 60px !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .quote-glow__text {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 1.35;
+    color: #111111;
+    margin: 0 0 12px 0 !important;
+    padding: 0 !important;
+    text-align: center;
+  }
+  .quote-glow__attribution {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3885FF;
+    text-align: center;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  @media (max-width: 768px) {
+    .quote-glow {
+      padding: 20px 24px 100px 24px;
+      overflow: visible;
+    }
+    .quote-glow__card {
+      width: 90%;
+    }
+    .quote-glow__card__inner {
+      padding: 24px 20px !important;
+    }
+    .quote-glow__text {
+      font-size: 18px;
+    }
+  }
+</style>
+<section class="quote-glow">
+  <div class="quote-glow__card">
+    <div class="quote-glow__card__inner">
+      <p class="quote-glow__text">"Democracy is a technology. Like any technology, it gets better when more people strive to improve it."</p>
+      <p class="quote-glow__attribution">— Audrey Tang, Taiwan's Cyber-Ambassador</p>
+    </div>
+  </div>
+</section>

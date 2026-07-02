@@ -1,1 +1,133 @@
-<!-- Content of host-university.html -->
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  .featured-breakout {
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -126px;
+    width: 100vw;
+    min-height: 600px;
+    background-color: #C2FFDB;
+    padding: 60px 60px 60px 120px;
+    box-sizing: border-box;
+  }
+
+  .featured-breakout__label {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #111111;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  .featured-breakout__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .featured-breakout__content h2 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 1.05;
+    color: #111111;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .featured-breakout__content p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #111111;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .featured-breakout__content p:last-of-type {
+    margin-bottom: 40px;
+  }
+
+  .featured-breakout__btn {
+    display: inline-block;
+    background-color: transparent;
+    color: #111111;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border: 2px solid #111111;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .featured-breakout__btn:hover {
+    background-color: #111111;
+    color: #C2FFDB;
+  }
+
+  .featured-breakout__image-wrap {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    padding: 20px;
+  }
+
+  .featured-breakout__image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .featured-breakout {
+      padding: 40px 24px;
+      min-height: auto;
+    }
+    .featured-breakout__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .featured-breakout__content h2 {
+      font-size: 30px;
+    }
+  }
+</style>
+
+<section class="featured-breakout" id="festival-host">
+
+  <p class="featured-breakout__label">Featured Institution</p>
+
+  <div class="featured-breakout__inner">
+
+    <div class="featured-breakout__content">
+      <h2>Bifröst University: Our 2026 Host</h2>
+      <p>We are proud to announce Bifröst University in Iceland as the host institution for this year's OpenEU Democracy Festival. Located in the striking landscape of western Iceland, Bifröst is one of the country's most distinctive universities — small enough to foster genuine community, ambitious enough to punch well above its weight on the European stage.</p>
+      <p>Bifröst offers undergraduate and graduate programmes in Business Administration, Law, and Social Sciences, and is home to a Centre for European Studies and a Jean Monnet Chair — making it a natural home for a festival dedicated to democratic innovation and European civic life.</p>
+      <p>As a proud member of the OpenEU Alliance, Bifröst has been an active partner in building bridges between European universities and their student communities. The university holds the Equal Pay Certificate and is a signatory of the Principles for Responsible Management Education (PRME), reflecting its deep commitment to values-driven education.</p>
+      <p>Hosting the OpenEU Democracy Festival is a natural extension of everything Bifröst stands for — open dialogue, civic engagement, and the belief that education is most powerful when it connects people across borders.</p>
+      <a href="https://www.bifrost.is/english/" class="featured-breakout__btn" target="_blank" rel="noopener noreferrer">Visit Bifröst</a>
+    </div>
+
+    <div class="featured-breakout__image-wrap">
+      <img
+        src="https://storage-8.saas.pokecode.net/7jb3i8uliu8hnxpzdu38kc87f4yu"
+        alt="Screenshot of Bifröst University website"
+      />
+    </div>
+
+  </div>
+
+</section><!-- Content of host-university.html -->

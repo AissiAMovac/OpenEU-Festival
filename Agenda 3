@@ -1,0 +1,1749 @@
+<div class="agwrap" id="agenda">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+.agwrap *{box-sizing:border-box !important;margin:0 !important;padding:0 !important;font-family:'Work Sans',sans-serif !important}
+.agwrap{scroll-margin-top:90px !important;--blue:#3885FF !important;--blue-deep:#256FE0 !important;--coral:#FF6B85 !important;--purple:#AB6EFF !important;--green:#26FF94 !important;--ink:#15233b !important;--line:#e7e4dd !important;--muted:#6b7280 !important;--band:#f6f8fb !important;--hi:#FFE24D !important;
+  color:var(--ink) !important;background:#fff !important;padding:80px 22px 60px !important;
+  position:relative !important;left:50% !important;margin-left:-50vw !important;margin-right:-50vw !important;width:100vw !important;margin-top:-95px !important;overflow:hidden !important}
+.agwrap .aginner{max-width:1240px !important;margin:0 auto !important}
+.agwrap .agtitle{display:flex !important;align-items:baseline !important;gap:12px !important;margin-bottom:14px !important}
+.agwrap .agtitle .agnum{font-weight:800 !important;font-size:34px !important;color:var(--blue) !important;line-height:1 !important}
+.agwrap .agtitle .agword{font-weight:800 !important;font-size:20px !important;color:var(--ink) !important;letter-spacing:.3px !important;text-transform:uppercase !important}
+
+/* ---- top controls ---- */
+.agwrap .agtoprow{display:flex !important;flex-wrap:wrap !important;gap:14px 18px !important;align-items:center !important;margin-bottom:12px !important}
+.agwrap .agdays{display:flex !important;gap:8px !important}
+.agwrap .agday{font-weight:800 !important;font-size:14px !important;border:2px solid var(--ink) !important;cursor:pointer !important;background:#fff !important;color:var(--ink) !important;
+  padding:9px 16px !important;border-radius:12px !important;transition:background .2s,color .2s,transform .1s !important;white-space:nowrap !important}
+.agwrap .agday:hover{transform:translateY(-1px) !important}
+.agwrap .agday.on{background:var(--blue) !important;border-color:var(--blue) !important;color:#fff !important}
+.agwrap .agpdf{font-weight:800 !important;font-size:14px !important;color:var(--ink) !important;text-decoration:none !important;display:inline-flex !important;align-items:center !important;gap:7px !important;
+  border-bottom:2px solid var(--blue) !important;padding-bottom:2px !important;transition:color .2s !important}
+.agwrap .agpdf:hover{color:var(--blue) !important}
+.agwrap .agpdf svg{width:16px !important;height:16px !important}
+
+/* ---- header portrait + filters ---- */
+.agwrap .agheadwrap{display:flex !important;align-items:flex-end !important;gap:20px !important;margin-bottom:10px !important}
+.agwrap .agheadleft{flex:1 !important;min-width:0 !important}
+.agwrap .agheadportrait{position:relative !important;flex-shrink:0 !important}
+.agwrap .agheadimg{height:230px !important;width:auto !important;object-fit:contain !important;display:block !important}
+.agwrap .oly-hot{position:absolute !important;inset:0 !important;cursor:help !important;z-index:2 !important}
+.agwrap .oly-bio{position:absolute !important;left:0 !important;top:calc(100% + 10px) !important;width:280px !important;background:#C2FFDB !important;color:#0e2a1a !important;
+  border-radius:14px !important;padding:16px 18px !important;box-shadow:0 16px 40px rgba(0,0,0,.22) !important;font-size:12.5px !important;line-height:1.55 !important;
+  opacity:0 !important;visibility:hidden !important;transform:translateY(8px) !important;transition:.25s !important;z-index:30 !important;pointer-events:none !important;
+  font-family:'Work Sans',sans-serif !important}
+.agwrap .oly-bio b{display:block !important;font-size:14px !important;margin-bottom:6px !important;color:#0a3d24 !important}
+.agwrap .oly-hot:hover ~ .oly-bio,.agwrap .oly-hot:focus ~ .oly-bio{opacity:1 !important;visibility:visible !important;transform:translateY(0) !important}
+.agwrap .agfilters{display:flex !important;flex-wrap:wrap !important;gap:10px !important;align-items:center !important}
+.agwrap .agselect{position:relative !important;display:flex !important;align-items:center !important}
+.agwrap .agselect svg{position:absolute !important;left:15px !important;width:15px !important;height:15px !important;pointer-events:none !important;opacity:.8 !important;z-index:1 !important;stroke:#fff !important}
+.agwrap select{font-weight:800 !important;font-size:13.5px !important;color:#fff !important;background:var(--blue) !important;
+  border:none !important;border-radius:24px !important;padding:11px 40px 11px 40px !important;cursor:pointer !important;appearance:none !important;transition:background .2s !important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='white' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+  background-repeat:no-repeat !important;background-position:right 16px center !important}
+.agwrap select:hover{background:var(--blue-deep) !important}
+.agwrap .agsearch{position:relative !important;display:flex !important;align-items:center !important;flex:1 1 220px !important;min-width:190px !important;max-width:340px !important}
+.agwrap .agsearch svg{position:absolute !important;left:15px !important;width:15px !important;height:15px !important;pointer-events:none !important;opacity:.55 !important;stroke:var(--ink) !important;z-index:1 !important}
+.agwrap .agsearch input{width:100% !important;font-weight:600 !important;font-size:13.5px !important;color:var(--ink) !important;background:#fff !important;
+  border:2px solid var(--line) !important;border-radius:24px !important;padding:9px 34px 9px 38px !important;transition:border-color .2s !important;font-family:inherit !important}
+.agwrap .agsearch input::placeholder{color:var(--muted) !important;font-weight:500 !important}
+.agwrap .agsearch input:focus{outline:none !important;border-color:var(--blue) !important}
+.agwrap .agsearchclear{position:absolute !important;right:6px !important;width:22px !important;height:22px !important;display:none !important;align-items:center !important;justify-content:center !important;
+  background:var(--band) !important;border:none !important;border-radius:50% !important;cursor:pointer !important;color:var(--ink) !important;padding:0 !important;font-size:14px !important;line-height:1 !important}
+.agwrap .agsearchclear:hover{background:var(--line) !important}
+.agwrap .agsearchclear.show{display:flex !important}
+
+/* track pills */
+.agwrap .agpills{display:flex !important;flex-wrap:wrap !important;gap:8px !important;align-items:center !important;margin-bottom:10px !important}
+.agwrap .agfilterbtn{display:inline-flex !important;align-items:center !important;gap:6px !important;font-weight:800 !important;font-size:13.5px !important;color:#fff !important;
+  background:var(--blue) !important;border:none !important;border-radius:24px !important;padding:11px 18px !important;cursor:pointer !important;transition:background .2s !important;white-space:nowrap !important}
+.agwrap .agfilterbtn:hover{background:var(--blue-deep) !important}
+.agwrap .agfilterarrow{display:inline-block !important;font-size:10px !important;transition:transform .25s ease !important}
+.agwrap .agfilterbtn.open .agfilterarrow{transform:rotate(180deg) !important}
+.agwrap .agpilldot{display:inline-block !important;width:8px !important;height:8px !important;border-radius:50% !important;margin-right:6px !important;flex-shrink:0 !important}
+.agwrap .agpillsbody{max-height:0 !important;opacity:0 !important;overflow:hidden !important;margin-bottom:0 !important;
+  transition:max-height .3s ease, opacity .25s ease .05s, margin-bottom .3s ease !important}
+.agwrap .agpillsbody.open{max-height:600px !important;opacity:1 !important;margin-bottom:10px !important}
+.agwrap .agpill{font-weight:800 !important;font-size:12.5px !important;border:2px solid var(--ink) !important;
+  background:#fff !important;color:var(--ink) !important;padding:7px 15px !important;border-radius:22px !important;cursor:pointer !important;transition:background .2s,color .2s,transform .1s !important;white-space:nowrap !important}
+.agwrap .agpill:hover{transform:translateY(-1px) !important}
+.agwrap .agpill.on{background:var(--blue) !important;border-color:var(--blue) !important;color:#fff !important}
+
+/* ---- proportional time grid (stage columns, dotted gridlines) ---- */
+.agwrap{--axisw:54px !important}
+.agwrap .agcolheaders{display:flex !important;margin-left:var(--axisw) !important;margin-bottom:8px !important}
+.agwrap .agcolhead{flex:none !important;font-weight:800 !important;font-size:11.5px !important;line-height:1.25 !important;text-align:center !important;color:var(--ink) !important;margin-right:6px !important;
+  background:var(--band) !important;border-radius:9px !important;padding:8px 6px !important;box-sizing:border-box !important}
+.agwrap .agcolhead:last-child{margin-right:0 !important}
+.agwrap .agtimeline{display:flex !important;align-items:flex-start !important;position:relative !important;padding-top:10px !important}
+.agwrap .agaxis{width:var(--axisw) !important;flex-shrink:0 !important;position:relative !important}
+.agwrap .agticklabel{position:absolute !important;left:0 !important;right:6px !important;font-size:10.5px !important;font-weight:800 !important;color:var(--muted) !important;text-align:right !important}
+.agwrap .aglanearea{flex:1 !important;position:relative !important}
+.agwrap .agtickline{position:absolute !important;left:0 !important;right:0 !important;height:1px !important;
+  background-image:linear-gradient(90deg,#cfd6e2 55%,transparent 45%) !important;background-size:6px 1px !important;
+  background-repeat:repeat-x !important;border:none !important;pointer-events:none !important;z-index:1 !important}
+.agwrap .agcolbg{position:absolute !important;top:0 !important;bottom:0 !important;filter:blur(50px) !important;opacity:.4 !important;pointer-events:none !important;z-index:0 !important}
+.agwrap .agcard{position:absolute !important;z-index:2 !important;border-radius:10px !important;background:#fff !important;box-shadow:0 2px 8px rgba(21,35,59,.10) !important;cursor:pointer !important;
+  overflow:hidden !important;transition:background .12s ease !important;outline:none !important;border-left:3px solid var(--line) !important}
+.agwrap .agcard:focus-visible{outline:3px solid var(--blue) !important;outline-offset:2px !important}
+.agwrap .agcard:hover{background:var(--hi) !important;box-shadow:0 5px 14px rgba(21,35,59,.16) !important;transform:translateY(-1px) !important}
+.agwrap .agcard .inner{height:100% !important;padding:8px 10px 8px !important;display:flex !important;flex-direction:column !important;gap:2px !important;overflow:hidden !important}
+.agwrap .agcard .agroom{font-weight:700 !important;font-size:8.5px !important;letter-spacing:.4px !important;text-transform:uppercase !important;color:var(--muted) !important}
+.agwrap .agcard .agtracktag{align-self:flex-start !important;font-size:8.5px !important;font-weight:800 !important;padding:1px 7px !important;border-radius:9px !important;color:var(--ink) !important;margin-top:1px !important}
+.agwrap .agcard .agtime{font-weight:700 !important;font-size:11px !important;color:var(--ink) !important;line-height:1.3 !important}
+.agwrap .agcard .agtime .agdur{font-weight:500 !important;color:var(--muted) !important;font-size:9.5px !important;margin-left:4px !important}
+.agwrap .agcard .agttl{font-weight:800 !important;font-size:13px !important;line-height:1.26 !important;color:var(--ink) !important;
+  display:-webkit-box !important;-webkit-line-clamp:3 !important;-webkit-box-orient:vertical !important;overflow:hidden !important}
+.agwrap .agcard .agsub{font-size:10.5px !important;font-weight:500 !important;color:var(--muted) !important;line-height:1.3 !important;margin-top:2px !important;
+  display:-webkit-box !important;-webkit-line-clamp:3 !important;-webkit-box-orient:vertical !important;overflow:hidden !important}
+.agwrap .agcard .agtags{font-size:9.5px !important;font-weight:500 !important;color:var(--muted) !important;line-height:1.3 !important;margin-top:auto !important;padding-top:2px !important}
+.agwrap .agcard .agtags{display:flex !important;flex-wrap:wrap !important;gap:4px !important}
+.agwrap .agcard .agtag{display:inline-block !important;font-size:8.5px !important;font-weight:800 !important;line-height:1.2 !important;color:var(--ink) !important;background:#eef2f7 !important;border-radius:10px !important;padding:3px 6px !important}
+.agwrap .agsheet .agtopics{display:flex !important;flex-wrap:wrap !important;gap:6px !important;margin:0 0 18px !important}
+.agwrap .agsheet .agtopic{display:inline-block !important;font-size:11px !important;font-weight:800 !important;color:var(--ink) !important;background:#eef2f7 !important;border-radius:14px !important;padding:5px 9px !important}
+.agwrap .agcard.feat{background:#eef4ff !important;border-left-color:var(--blue) !important}
+.agwrap .agcard.feat.ent{background:#fff4f6 !important;border-left-color:var(--coral) !important}
+.agwrap .agcard.feat:hover,.agwrap .agcard.feat.ent:hover{background:var(--hi) !important}
+.agwrap .agbreakband{position:absolute !important;left:0 !important;right:0 !important;background:linear-gradient(90deg,rgba(56,133,255,.30),rgba(56,133,255,0) 75%) !important;
+  border-radius:6px !important;display:flex !important;align-items:center !important;
+  padding:0 10px !important;font-size:9.5px !important;font-weight:700 !important;color:var(--ink) !important;z-index:2 !important}
+.agwrap .agemptyday{position:absolute !important;left:0 !important;right:0 !important;top:40% !important;text-align:center !important;color:var(--muted) !important;font-size:14px !important}
+.agwrap .agemptyday-flow{position:static !important;padding:50px 0 !important}
+.agwrap .agdaysep{font-weight:800 !important;font-size:15px !important;color:var(--ink) !important;letter-spacing:.2px !important;
+  margin:14px 2px 2px !important;padding:0 2px 6px !important;border-bottom:2px solid var(--line) !important}
+.agwrap .agdaysep:first-child{margin-top:0 !important}
+.agwrap .agmobilefeed{position:relative !important;display:flex !important;flex-direction:column !important;gap:12px !important;
+  padding:16px 12px !important;border-radius:16px !important;
+  background:linear-gradient(135deg,#CBE5F633,#FCC5E233,#D6C5FC33,#C2FFDB33) !important}
+.agwrap .agcard-flow{position:relative !important;top:auto !important;left:auto !important;right:auto !important;
+  width:auto !important;height:auto !important;min-height:0 !important}
+.agwrap .agcard-flow .inner{padding:12px 14px !important}
+.agwrap .agbreakband-flow{position:relative !important;top:auto !important;left:auto !important;right:auto !important;
+  height:auto !important;padding:9px 14px !important}
+/* ---- modal ---- */
+.agwrap .agmodal{position:fixed !important;inset:0 !important;z-index:99999 !important;display:flex !important;align-items:center !important;justify-content:center !important;padding:20px !important;
+  background:rgba(21,35,59,.55) !important;opacity:0 !important;visibility:hidden !important;transition:opacity .25s ease, visibility .25s !important}
+.agwrap .agmodal.on{opacity:1 !important;visibility:visible !important}
+.agwrap .agsheet{background:#fff !important;border-radius:18px !important;max-width:560px !important;width:100% !important;max-height:85vh !important;overflow-y:auto !important;padding:28px 30px 30px !important;
+  box-shadow:0 24px 60px rgba(21,35,59,.3) !important;transform:translateY(16px) scale(.97) !important;transition:transform .28s cubic-bezier(.2,.8,.2,1) !important}
+.agwrap .agmodal.on .agsheet{transform:none !important}
+.agwrap .agsheet .agmtime{font-weight:800 !important;font-size:15px !important;color:var(--blue) !important;padding-right:38px !important}
+.agwrap .agsheet .agmtag{display:inline-block !important;font-size:11px !important;font-weight:800 !important;padding:3px 10px !important;border-radius:14px !important;margin-left:8px !important;color:var(--ink) !important}
+.agwrap .agsheet .agmttl{font-weight:800 !important;font-size:24px !important;line-height:1.15 !important;margin:10px 0 12px !important;color:var(--ink) !important;padding-right:46px !important}
+.agwrap .agsheet .agmdesc{font-size:14.5px !important;line-height:1.6 !important;color:#3a3a3a !important;margin-bottom:18px !important}
+.agwrap .agsheet .agmspklbl{font-weight:800 !important;font-size:12px !important;letter-spacing:.5px !important;text-transform:uppercase !important;color:var(--muted) !important;margin-bottom:10px !important}
+.agwrap .agsheet .agmspk{display:flex !important;align-items:center !important;gap:11px !important;margin-bottom:11px !important}
+.agwrap .agsheet .agmspk .av{width:42px !important;height:42px !important;border-radius:50% !important;background:var(--band) !important;flex:0 0 42px !important;display:block !important;object-fit:cover !important;overflow:hidden !important;color:var(--muted) !important;font-weight:800 !important;font-size:15px !important}.agwrap .agsheet .agmspk .av.initials{display:flex !important;align-items:center !important;justify-content:center !important;background:var(--band) !important}
+.agwrap .agsheet .agmspk .nm{font-weight:700 !important;font-size:14px !important;color:var(--ink) !important;line-height:1.3 !important}
+.agwrap .agsheet .agmactions{display:flex !important;flex-wrap:wrap !important;gap:12px !important;margin-top:22px !important}
+.agwrap .agsheet .agmcal{display:inline-flex !important;align-items:center !important;gap:8px !important;font-weight:800 !important;font-size:13.5px !important;background:var(--blue) !important;color:#fff !important;
+  border:none !important;border-radius:24px !important;padding:11px 20px !important;cursor:pointer !important;text-decoration:none !important;transition:background .2s !important}
+.agwrap .agsheet .agmcal:hover{background:var(--blue-deep) !important}
+.agwrap .agsheet .agmcal svg{width:16px !important;height:16px !important}
+.agwrap .agsheet .agmclose{position:absolute !important;top:18px !important;right:20px !important;background:none !important;border:none !important;cursor:pointer !important;color:var(--ink) !important;padding:6px !important;line-height:0 !important;border-radius:8px !important;transition:background .2s !important}
+.agwrap .agsheet .agmclose:hover{background:var(--band) !important}
+.agwrap .agsheet-wrap{position:relative !important}
+
+.agwrap .agtimelinescroll{overflow:visible !important}
+@media(max-width:820px){
+  .agwrap{padding:60px 14px 50px !important}
+  .agwrap{--axisw:42px !important}
+  .agwrap .agcolhead{font-size:10px !important;padding:6px 4px !important}
+  .agwrap .agticklabel{font-size:9.5px !important}
+  .agwrap .agcard .agttl{font-size:10.5px !important}
+  .agwrap .agheadwrap{flex-wrap:wrap !important}
+  .agwrap .agheadimg{height:130px !important}
+  .agwrap .oly-bio{width:220px !important;font-size:11px !important;padding:12px 14px !important}
+  /* Search bar + the two selects (Track, Timezone) were sizing to their longest option
+     text (e.g. "Buenos Aires (Argentina)") and could spill past a phone's width — and
+     since .agwrap uses overflow:hidden for its full-bleed layout, anything that spilled
+     just got silently clipped instead of wrapping. Stack them full-width instead. */
+  .agwrap .agfilters{flex-direction:column !important;align-items:stretch !important;gap:10px !important}
+  .agwrap .agsearch{max-width:none !important;flex-basis:auto !important;width:100% !important}
+  .agwrap .agselect{width:100% !important}
+  .agwrap .agfilterbtn{width:100% !important;justify-content:space-between !important}
+  .agwrap select{width:100% !important;box-sizing:border-box !important;white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important}
+  .agwrap .agtoprow{row-gap:10px !important}
+}
+@media(max-width:480px){
+  .agwrap .agtoprow{flex-direction:column !important;align-items:flex-start !important}
+  .agwrap .agdays{width:100% !important}
+  .agwrap .agday{flex:1 1 0 !important;padding:9px 8px !important;text-align:center !important}
+  .agwrap .agpdf{font-size:12.5px !important}
+  .agwrap .agpills{gap:6px !important}
+  .agwrap .agpill{font-size:11.5px !important;padding:6px 12px !important}
+}
+@media(prefers-reduced-motion:reduce){.agwrap *{transition:none!important}}
+</style>
+
+<div class="aginner">
+  <div class="agheadwrap">
+    <div class="agheadportrait">
+      <img class="agheadimg" src="https://storage-8.saas.pokecode.net/000vkxrqnvmztrfn6b0b0o4xidqx" alt="Olympe de Gouges">
+      <div class="oly-hot" tabindex="0"></div>
+      <div class="oly-bio"><b>Olympe de Gouges (1748–1793)</b>Olympe de Gouges was a French playwright and political activist. In 1791 she published the Declaration of the Rights of Woman and of the Female Citizen, challenging the French Revolution's exclusion of women from its promise of equality and citizenship. She was guillotined in 1793 for her political writings, and is remembered today as an early voice for civil and women's rights.</div>
+    </div>
+    <div class="agheadleft">
+      <div class="agtitle"><span class="agnum">2026</span><span class="agword">Program</span></div>
+
+      <div class="agtoprow">
+        <div class="agdays" id="agDays">
+          <button class="agday on" data-day="fri">Fri 23</button>
+          <button class="agday" data-day="sat">Sat 24</button>
+          <button class="agday" data-day="sun">Sun 25</button>
+        </div>
+        <a class="agpdf" id="agPdf" href="#" download="OpenEU-Festival-Programme-2026.pdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          Coming soon on the downloadable program
+        </a>
+      </div>
+
+      <div class="agfilters">
+        <div class="agsearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+          <input type="text" id="agSearch" placeholder="Search talks, speakers, topics…" autocomplete="off" aria-label="Search the programme">
+          <button class="agsearchclear" id="agSearchClear" type="button" aria-label="Clear search">✕</button>
+        </div>
+        <button class="agfilterbtn" id="agTrackToggle" type="button" aria-expanded="false" aria-controls="agTrackPills">Track <span class="agfilterarrow">▾</span></button>
+        <button class="agfilterbtn" id="agPillsToggle" type="button" aria-expanded="false" aria-controls="agPills">Topic <span class="agfilterarrow">▾</span></button>
+        <div class="agselect">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+          <select id="agTz"></select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="agpills agpillsbody" id="agTrackPills">
+    <button class="agpill on" data-track="all">All tracks</button>
+  </div>
+  <div class="agpills agpillsbody" id="agPills">
+    <button class="agpill on" data-topic="all">All</button>
+  </div>
+
+  <div class="agfeed" id="agGrid"></div>
+</div>
+
+<!-- modal -->
+<div class="agmodal" id="agModal" role="dialog" aria-modal="true" aria-labelledby="agmTitle">
+  <div class="agsheet">
+    <div class="agsheet-wrap">
+      <button class="agmclose" id="agmClose" aria-label="Close">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div id="agmBody"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ============================================================
+  // EDIT PROGRAM HERE
+  // Each session is separated and labelled. For each session, edit only:
+  //   "title": "Session title",
+  //   "topics": ["Topic 1", "Topic 2"],
+  //   "speakers": [
+  //     {"name": "Speaker 1", "photo": "PHOTO URL"},
+  //     {"name": "Speaker 2", "photo": "PHOTO URL"}
+  //   ]
+  // You can add as many topics or speakers as you need.
+  // ============================================================
+  var DATA = {
+  "tracks": {
+    "t1": {
+    "n": 1,
+    "name": "The Democratic Self",
+    "c": "#CBE5F6"
+  },
+  "t2": {
+    "n": 2,
+    "name": "Deep Democracy, Organizations & DEI",
+    "c": "#FAD4D0"
+  },
+  "t3": {
+    "n": 3,
+    "name": "Democracy in Governance, Health & Society",
+    "c": "#C2FFDB"
+  },
+  "t4": {
+    "n": 4,
+    "name": "Digital Democracy, Technology & Futures",
+    "c": "#D6C5FC"
+  },
+  "t5": {
+    "n": 5,
+    "name": "Democracy in Education & Knowledge",
+    "c": "#FCC5E2"
+  },
+  "t6": {
+    "n": 6,
+    "name": "Language, Culture, History & Democratic Expression",
+    "c": "#FBE7A1"
+  }
+} ,
+  "sessions": [
+  // ===== SESSION 01: FRI | Plenary | 13:30–14:00 | Presentation Event Student Council — Welcome by the President of Bifröst - Ólína Kjerúlf =====
+  {
+    "day": "fri",
+    "room": "Plenary",
+    "kind": "talk",
+    "s": "2026-10-23T13:30:00Z",
+    "e": "2026-10-23T14:00:00Z",
+    "title": "Presentation Event Student Council — Welcome by the President of Bifröst - Ólína Kjerúlf",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "President of Bifröst",
+        "photo": "https://storage-8.saas.pokecode.net/uin8t8khpo6ofrf09pjfty3o4nkw"
+      }
+    ],
+    "track": "",
+    "topics": ["Education", "Governance"]
+  },
+  // ===== SESSION 02: FRI | Plenary | 14:00–14:30 | To be confirmed =====
+  {
+    "day": "fri",
+    "room": "Plenary",
+    "kind": "talk",
+    "s": "2026-10-23T14:00:00Z",
+    "e": "2026-10-23T14:30:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Nil Homedes — Decidim",
+        "photo": "https://storage-8.saas.pokecode.net/54uoq3huzuylm67knx2jovkz5nka"
+      }
+    ],
+    "track": "t4",
+    "topics": ["Technology", "Governance", "Participation"]
+  },
+  // ===== SESSION 03: FRI | Plenary | 14:30–15:00 | To be confirmed =====
+  {
+    "day": "fri",
+    "room": "Plenary",
+    "kind": "talk",
+    "s": "2026-10-23T14:30:00Z",
+    "e": "2026-10-23T15:00:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Vlad Vexler",
+        "photo": "https://storage-8.saas.pokecode.net/97e0okverkeufdm8g7t9y2ifxwe7"
+      }
+    ],
+    "track": "t1",
+    "topics": ["Philosophy", "Politics"]
+  },
+  // ===== SESSION 04: FRI | Plenary | 15:00–15:10 | Icebreaker =====
+  {
+    "day": "fri",
+    "room": "Plenary",
+    "kind": "entertainment",
+    "s": "2026-10-23T15:00:00Z",
+    "e": "2026-10-23T15:10:00Z",
+    "title": "Icebreaker",
+    "desc": "A common moment to warm up and connect with fellow participants.",
+    "speakers": [],
+    "track": "",
+    "topics": ["Entertainment"]
+  },
+  // ===== SESSION 05: FRI | Plenary | 15:10–15:40 | To be confirmed =====
+  {
+    "day": "fri",
+    "room": "Plenary",
+    "kind": "talk",
+    "s": "2026-10-23T15:10:00Z",
+    "e": "2026-10-23T15:40:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Paul Zoubkov",
+        "photo": "https://storage-8.saas.pokecode.net/5nbodbhs2ta1qdau37l5e539j1ln"
+      }
+    ],
+    "track": "t3",
+    "topics": ["Law", "Governance", "Politics"]
+  },
+  // ===== SESSION 06: FRI | Plenary | 15:40–16:10 | To be confirmed =====
+  {
+    "day": "fri",
+    "room": "Plenary",
+    "kind": "talk",
+    "s": "2026-10-23T15:40:00Z",
+    "e": "2026-10-23T16:10:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Atli Þór Fanndal Guðlaugsson",
+        "photo": "https://storage-8.saas.pokecode.net/etl0nenaa49apdffvsnvo5hs2860"
+      }
+    ],
+    "track": "t3",
+    "topics": ["Law", "Media", "Governance"]
+  },
+  // ===== SESSION 07: FRI | Plenary | 16:10–16:40 | Tufān Saadat =====
+  {
+    "day": "fri",
+    "room": "Plenary",
+    "kind": "entertainment",
+    "s": "2026-10-23T16:10:00Z",
+    "e": "2026-10-23T16:40:00Z",
+    "title": "Tufān Saadat",
+    "desc": "Poetry performance, followed by The Sortition. Open to everyone.",
+    "speakers": [
+      {
+        "name": "Tufān Saadat — Poet",
+        "photo": "https://storage-8.saas.pokecode.net/om3invcnxvbrbozw8knahcqxd8pb"
+      }
+    ],
+    "track": "t6",
+    "topics": ["Entertainment"]
+  },
+  // ===== SESSION 08: SAT | Plenary | 08:30–09:30 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "conversation",
+    "s": "2026-10-24T08:30:00Z",
+    "e": "2026-10-24T09:30:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Francesc Xavier Coller Porta",
+        "photo": "https://storage-8.saas.pokecode.net/om3invcnxvbrbozw8knahcqxd8pb"
+      },
+      {
+        "name": "Salvador Parrado Diez",
+        "photo": "https://storage-8.saas.pokecode.net/x62s3leaawdf2dr4og6y9xsdnbf7"
+      },
+      {
+        "name": "Odón Elorza",
+        "photo": "https://storage-8.saas.pokecode.net/1ll668s67bsksnvbaxiu37c6fsdv"
+      }
+    ],
+    "track": "t2",
+    "topics": ["Politics", "Governance", "Participation"]
+  },
+  // ===== SESSION 09: SAT | Plenary | 09:30–09:35 | Break =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "break",
+    "s": "2026-10-24T09:30:00Z",
+    "e": "2026-10-24T09:35:00Z",
+    "title": "Break",
+    "desc": "",
+    "speakers": [],
+    "track": "",
+    "topics": []
+  },
+  // ===== SESSION 10: SAT | Plenary | 09:35–10:05 | Keynote =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "keynote",
+    "s": "2026-10-24T09:35:00Z",
+    "e": "2026-10-24T10:05:00Z",
+    "title": "Keynote",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Loukas Tsoukalis",
+        "photo": "https://storage-8.saas.pokecode.net/cee8lbrn130746r5416pei3zp8fr"
+      }
+    ],
+    "track": "t3",
+    "topics": ["Politics", "Governance", "Economics"]
+  },
+  // ===== SESSION 11: SAT | Plenary | 10:05–10:10 | Break =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "break",
+    "s": "2026-10-24T10:05:00Z",
+    "e": "2026-10-24T10:10:00Z",
+    "title": "Break",
+    "desc": "",
+    "speakers": [],
+    "track": "",
+    "topics": []
+  },
+  // ===== SESSION 12: SAT | Plenary | 10:10–10:40 | The Sámi Parliament in Norway =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "talk",
+    "s": "2026-10-24T10:10:00Z",
+    "e": "2026-10-24T10:40:00Z",
+    "title": "The Sámi Parliament in Norway",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Sandra Márjá West — Chair of the Plenary",
+        "photo": "https://storage-8.saas.pokecode.net/3vzd7g7ac52qoogdegz81k67qbft"
+      }
+    ],
+    "track": "t2",
+    "topics": ["Politics", "Rights", "Culture"]
+  },
+  // ===== SESSION 13: SAT | Plenary | 10:40–10:45 | Break =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "break",
+    "s": "2026-10-24T10:40:00Z",
+    "e": "2026-10-24T10:45:00Z",
+    "title": "Break",
+    "desc": "",
+    "speakers": [],
+    "track": "",
+    "topics": []
+  },
+  // ===== SESSION 14: SAT | Plenary | 10:45–11:15 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "talk",
+    "s": "2026-10-24T10:45:00Z",
+    "e": "2026-10-24T11:15:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [],
+    "track": "",
+    "topics": []
+  },
+  // ===== SESSION 15: SAT | Plenary | 11:20–12:20 | Lunch time =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "meal",
+    "s": "2026-10-24T11:20:00Z",
+    "e": "2026-10-24T12:20:00Z",
+    "title": "Lunch time",
+    "desc": "Documentary screening by Masato Sezawa during lunch.",
+    "speakers": [
+      {
+        "name": "Masato Sezawa — Documentary screening",
+        "photo": "https://storage-8.saas.pokecode.net/xdpenrq95lo372g6prk1pq9hjuij"
+      }
+    ],
+    "track": "t4",
+    "topics": ["Technology", "Sustainability"]
+  },
+  // ===== SESSION 16: SAT | Room 1 | 12:20–13:20 | Restorative Justice in University Institutions =====
+  {
+    "day": "sat",
+    "room": "Room 1",
+    "kind": "breakout",
+    "s": "2026-10-24T12:20:00Z",
+    "e": "2026-10-24T13:20:00Z",
+    "title": "Restorative Justice in University Institutions",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Elena Maculan",
+        "photo": "https://storage-8.saas.pokecode.net/f1ade8jqhpbd53a8s1mzq1hcupmg"
+      },
+      {
+        "name": "Mariano Melendo",
+        "photo": "https://storage-8.saas.pokecode.net/u426nek4dlkz30juw40beczwojl4"
+      },
+      {
+        "name": "Elena Delgado",
+        "photo": "https://storage-8.saas.pokecode.net/vpcros4ifkqj0gg0ysza7ojxlkro"
+      }
+    ],
+    "track": "t3",
+    "topics": ["Law", "Rights"]
+  },
+  // ===== SESSION 17: SAT | Room 1 | 13:30–14:30 | Disability, Democracy, and Accessibility: Conversation =====
+  {
+    "day": "sat",
+    "room": "Room 1",
+    "kind": "breakout",
+    "s": "2026-10-24T13:30:00Z",
+    "e": "2026-10-24T14:30:00Z",
+    "title": "Disability, Democracy, and Accessibility: Conversation",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Verónica Sierra, Cool Crips, Tamara Diez Otero",
+        "photo": ""
+      }
+    ],
+    "track": "t3",
+    "topics": ["Rights", "Health"]
+  },
+  // ===== SESSION 18: SAT | Room 1 | 14:40–15:10 | From Unanimity to Multi-Tier Europe: Can a More Flexible Union Remain Democratic? =====
+  {
+    "day": "sat",
+    "room": "Room 1",
+    "kind": "breakout",
+    "s": "2026-10-24T14:40:00Z",
+    "e": "2026-10-24T15:10:00Z",
+    "title": "From Unanimity to Multi-Tier Europe: Can a More Flexible Union Remain Democratic?",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Piro Baxerri",
+        "photo": "https://storage-8.saas.pokecode.net/yvrrhmgwcbvdo0b0bmu93cguu4m8"
+      }
+    ],
+    "track": "t3",
+    "topics": ["Politics", "Governance"]
+  },
+  // ===== SESSION 19: SAT | Room 1 | 15:10–15:40 | When the City Speaks Without Permission: Public Space, Participation, and Democracy in Thessaloniki =====
+  {
+    "day": "sat",
+    "room": "Room 1",
+    "kind": "breakout",
+    "s": "2026-10-24T15:10:00Z",
+    "e": "2026-10-24T15:40:00Z",
+    "title": "When the City Speaks Without Permission: Public Space, Participation, and Democracy in Thessaloniki",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Thanos Pappas",
+        "photo": ""
+      }
+    ],
+    "track": "t3",
+    "topics": ["Politics", "Participation"]
+  },
+  // ===== SESSION 20: SAT | Room 1 | 16:10–17:10 | Panel discussion =====
+  {
+    "day": "sat",
+    "room": "Room 1",
+    "kind": "breakout",
+    "s": "2026-10-24T16:10:00Z",
+    "e": "2026-10-24T17:10:00Z",
+    "title": "Panel discussion",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Ana Brochado",
+        "photo": ""
+      },
+      {
+        "name": "André Pereira Matos",
+        "photo": ""
+      },
+      {
+        "name": "Angela Machado",
+        "photo": ""
+      },
+      {
+        "name": "Patrícia Palma",
+        "photo": ""
+      },
+      {
+        "name": "Séfora Silva",
+        "photo": ""
+      }
+    ],
+    "track": "t3",
+    "topics": []
+  },
+  // ===== SESSION 21: SAT | Room 2 | 12:20–12:50 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 2",
+    "kind": "breakout",
+    "s": "2026-10-24T12:20:00Z",
+    "e": "2026-10-24T12:50:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [],
+    "track": "t4",
+    "topics": []
+  },
+  // ===== SESSION 22: SAT | Room 2 | 12:50–13:20 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 2",
+    "kind": "breakout",
+    "s": "2026-10-24T12:50:00Z",
+    "e": "2026-10-24T13:20:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Athina Karatzogianni",
+        "photo": ""
+      }
+    ],
+    "track": "t4",
+    "topics": ["AI", "Technology", "Politics"]
+  },
+  // ===== SESSION 23: SAT | Room 2 | 13:30–14:00 | Repair Café: Democracy You Can Hold in Your Hands =====
+  {
+    "day": "sat",
+    "room": "Room 2",
+    "kind": "breakout",
+    "s": "2026-10-24T13:30:00Z",
+    "e": "2026-10-24T14:00:00Z",
+    "title": "Repair Café: Democracy You Can Hold in Your Hands",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Masato Sewaze",
+        "photo": ""
+      }
+    ],
+    "track": "t4",
+    "topics": ["Technology", "Sustainability"]
+  },
+  // ===== SESSION 24: SAT | Room 2 | 14:00–14:30 | Breaking the Black Box: How the Right to Repair Restores Our Democratic Agency =====
+  {
+    "day": "sat",
+    "room": "Room 2",
+    "kind": "breakout",
+    "s": "2026-10-24T14:00:00Z",
+    "e": "2026-10-24T14:30:00Z",
+    "title": "Breaking the Black Box: How the Right to Repair Restores Our Democratic Agency",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Evangelos Tsavalopoulos",
+        "photo": ""
+      }
+    ],
+    "track": "t4",
+    "topics": ["Technology", "Rights", "Sustainability"]
+  },
+  // ===== SESSION 25: SAT | Room 2 | 14:40–15:10 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 2",
+    "kind": "breakout",
+    "s": "2026-10-24T14:40:00Z",
+    "e": "2026-10-24T15:10:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Efraín Foglia",
+        "photo": ""
+      }
+    ],
+    "track": "t4",
+    "topics": ["Technology", "Participation"]
+  },
+  // ===== SESSION 26: SAT | Room 2 | 15:10–15:40 | Citizen participation, AI, and the crisis of representative politics. =====
+  {
+    "day": "sat",
+    "room": "Room 2",
+    "kind": "breakout",
+    "s": "2026-10-24T15:10:00Z",
+    "e": "2026-10-24T15:40:00Z",
+    "title": "Citizen participation, AI, and the crisis of representative politics.",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Sævar Ari Finnbogason",
+        "photo": ""
+      }
+    ],
+    "track": "t4",
+    "topics": ["AI", "Philosophy", "Politics"]
+  },
+  // ===== SESSION 27: SAT | Room 2 | 16:10–16:40 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 2",
+    "kind": "breakout",
+    "s": "2026-10-24T16:10:00Z",
+    "e": "2026-10-24T16:40:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [],
+    "track": "t4",
+    "topics": []
+  },
+  // ===== SESSION 28: SAT | Room 2 | 16:40–17:10 | From Digital Promise to Digital Lag: Can Europe's South Catch Up — and Who Decides? =====
+  {
+    "day": "sat",
+    "room": "Room 2",
+    "kind": "breakout",
+    "s": "2026-10-24T16:40:00Z",
+    "e": "2026-10-24T17:10:00Z",
+    "title": "From Digital Promise to Digital Lag: Can Europe's South Catch Up — and Who Decides?",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Antonio Koronios",
+        "photo": ""
+      }
+    ],
+    "track": "t4",
+    "topics": ["Technology", "Economics"]
+  },
+  // ===== SESSION 29: SAT | Room 3 | 12:20–12:50 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 3",
+    "kind": "breakout",
+    "s": "2026-10-24T12:20:00Z",
+    "e": "2026-10-24T12:50:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Jean-Claude Burgelman",
+        "photo": ""
+      }
+    ],
+    "track": "t5",
+    "topics": ["Education", "Technology"]
+  },
+  // ===== SESSION 30: SAT | Room 3 | 12:50–13:20 | We Learned to Graduate. How Do We Learn to Be Citizens? From Student to Lifelong Learner to Active Citizen =====
+  {
+    "day": "sat",
+    "room": "Room 3",
+    "kind": "breakout",
+    "s": "2026-10-24T12:50:00Z",
+    "e": "2026-10-24T13:20:00Z",
+    "title": "We Learned to Graduate. How Do We Learn to Be Citizens? From Student to Lifelong Learner to Active Citizen",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Athina Skotara",
+        "photo": ""
+      }
+    ],
+    "track": "t5",
+    "topics": ["Education", "Participation"]
+  },
+  // ===== SESSION 31: SAT | Room 3 | 13:30–14:00 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 3",
+    "kind": "breakout",
+    "s": "2026-10-24T13:30:00Z",
+    "e": "2026-10-24T14:00:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [],
+    "track": "t5",
+    "topics": []
+  },
+  // ===== SESSION 32: SAT | Room 3 | 14:00–14:30 | Teaching Democracy or Teaching Democratically? What Language Classrooms Can Teach Us About Voice, Listening and Participation =====
+  {
+    "day": "sat",
+    "room": "Room 3",
+    "kind": "breakout",
+    "s": "2026-10-24T14:00:00Z",
+    "e": "2026-10-24T14:30:00Z",
+    "title": "Teaching Democracy or Teaching Democratically? What Language Classrooms Can Teach Us About Voice, Listening and Participation",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Stavroula Bagia",
+        "photo": ""
+      }
+    ],
+    "track": "t5",
+    "topics": ["Education", "Language"]
+  },
+  // ===== SESSION 33: SAT | Room 3 | 14:40–15:10 | Whose Questions Count? Open Hardware and the Public Research Agenda =====
+  {
+    "day": "sat",
+    "room": "Room 3",
+    "kind": "breakout",
+    "s": "2026-10-24T14:40:00Z",
+    "e": "2026-10-24T15:10:00Z",
+    "title": "Whose Questions Count? Open Hardware and the Public Research Agenda",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Julieta Arancio",
+        "photo": ""
+      }
+    ],
+    "track": "t5",
+    "topics": ["Technology", "Education", "Participation"]
+  },
+  // ===== SESSION 34: SAT | Room 3 | 15:10–15:40 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 3",
+    "kind": "breakout",
+    "s": "2026-10-24T15:10:00Z",
+    "e": "2026-10-24T15:40:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Anna-María Atanasova",
+        "photo": ""
+      }
+    ],
+    "track": "t5",
+    "topics": []
+  },
+  // ===== SESSION 35: SAT | Room 3 | 16:10–16:40 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 3",
+    "kind": "breakout",
+    "s": "2026-10-24T16:10:00Z",
+    "e": "2026-10-24T16:40:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Margarita Kaleynska",
+        "photo": ""
+      }
+    ],
+    "track": "t5",
+    "topics": []
+  },
+  // ===== SESSION 36: SAT | Room 3 | 16:40–17:10 | 19th Century: The Beginnings of Contemporary Democracy — Defining Citizenship, Inclusion and Equal Access to Education =====
+  {
+    "day": "sat",
+    "room": "Room 3",
+    "kind": "breakout",
+    "s": "2026-10-24T16:40:00Z",
+    "e": "2026-10-24T17:10:00Z",
+    "title": "19th Century: The Beginnings of Contemporary Democracy — Defining Citizenship, Inclusion and Equal Access to Education",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Ifigeneia Xaidara",
+        "photo": ""
+      }
+    ],
+    "track": "t5",
+    "topics": ["History", "Education", "Rights"]
+  },
+  // ===== SESSION 37: SAT | Room 4 | 12:20–12:50 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 4",
+    "kind": "breakout",
+    "s": "2026-10-24T12:20:00Z",
+    "e": "2026-10-24T12:50:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Giuseppe Porcaro — Political Geographer",
+        "photo": "https://storage-8.saas.pokecode.net/dhs14g85ytiowi8r75i95ysr89ha"
+      }
+    ],
+    "track": "t6",
+    "topics": ["Politics", "Governance", "Culture"]
+  },
+  // ===== SESSION 38: SAT | Room 4 | 12:50–13:20 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 4",
+    "kind": "breakout",
+    "s": "2026-10-24T12:50:00Z",
+    "e": "2026-10-24T13:20:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Erla Rún Guðmundsdóttir",
+        "photo": ""
+      }
+    ],
+    "track": "t6",
+    "topics": ["Culture", "Economics"]
+  },
+  // ===== SESSION 39: SAT | Room 4 | 13:30–14:00 | Democracy and multilinguism: The multicultural context of Equatorial Guinea =====
+  {
+    "day": "sat",
+    "room": "Room 4",
+    "kind": "breakout",
+    "s": "2026-10-24T13:30:00Z",
+    "e": "2026-10-24T14:00:00Z",
+    "title": "Democracy and multilinguism: The multicultural context of Equatorial Guinea",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Jeremías Micha Abaga Mía",
+        "photo": ""
+      }
+    ],
+    "track": "t6",
+    "topics": ["Language", "Culture", "Politics"]
+  },
+  // ===== SESSION 40: SAT | Room 4 | 14:00–14:30 | Lost in Legislation: Why "Wooden Language" Is a Barrier to Lived Democracy =====
+  {
+    "day": "sat",
+    "room": "Room 4",
+    "kind": "breakout",
+    "s": "2026-10-24T14:00:00Z",
+    "e": "2026-10-24T14:30:00Z",
+    "title": "Lost in Legislation: Why \"Wooden Language\" Is a Barrier to Lived Democracy",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Foteini Bakadima",
+        "photo": ""
+      }
+    ],
+    "track": "t6",
+    "topics": ["Language", "Law"]
+  },
+  // ===== SESSION 41: SAT | Room 4 | 14:40–15:10 | Two decades of deliberative democracy in European politics. What have we learned and where are we going? =====
+  {
+    "day": "sat",
+    "room": "Room 4",
+    "kind": "breakout",
+    "s": "2026-10-24T14:40:00Z",
+    "e": "2026-10-24T15:10:00Z",
+    "title": "Two decades of deliberative democracy in European politics. What have we learned and where are we going?",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Yves Dejaeghere",
+        "photo": ""
+      }
+    ],
+    "track": "t6",
+    "topics": ["Politics", "Participation"]
+  },
+  // ===== SESSION 42: SAT | Room 4 | 15:10–15:40 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 4",
+    "kind": "breakout",
+    "s": "2026-10-24T15:10:00Z",
+    "e": "2026-10-24T15:40:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Kosta Karakashyan",
+        "photo": ""
+      }
+    ],
+    "track": "t6",
+    "topics": ["Rights", "Culture", "Media"]
+  },
+  // ===== SESSION 43: SAT | Room 4 | 16:10–16:40 | The European Correspondent =====
+  {
+    "day": "sat",
+    "room": "Room 4",
+    "kind": "breakout",
+    "s": "2026-10-24T16:10:00Z",
+    "e": "2026-10-24T16:40:00Z",
+    "title": "The European Correspondent",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Julius E. O. Fintelmann",
+        "photo": ""
+      }
+    ],
+    "track": "t6",
+    "topics": ["Media", "Politics"]
+  },
+  // ===== SESSION 44: SAT | Room 4 | 16:40–17:10 | To be confirmed =====
+  {
+    "day": "sat",
+    "room": "Room 4",
+    "kind": "breakout",
+    "s": "2026-10-24T16:40:00Z",
+    "e": "2026-10-24T17:10:00Z",
+    "title": "To be confirmed",
+    "desc": "",
+    "speakers": [
+      {
+        "name": "Nina Paley",
+        "photo": ""
+      }
+    ],
+    "track": "t6",
+    "topics": ["Culture", "Law"]
+  },
+  // ===== SESSION 45: SAT | Plenary | 13:20–13:30 | Break =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "break",
+    "s": "2026-10-24T13:20:00Z",
+    "e": "2026-10-24T13:30:00Z",
+    "title": "Break",
+    "desc": "",
+    "speakers": [],
+    "track": "",
+    "topics": []
+  },
+  // ===== SESSION 46: SAT | Plenary | 14:30–14:40 | Break =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "break",
+    "s": "2026-10-24T14:30:00Z",
+    "e": "2026-10-24T14:40:00Z",
+    "title": "Break",
+    "desc": "",
+    "speakers": [],
+    "track": "",
+    "topics": []
+  },
+  // ===== SESSION 47: SAT | Plenary | 15:40–16:10 | Helgi Steinar =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "entertainment",
+    "s": "2026-10-24T15:40:00Z",
+    "e": "2026-10-24T16:10:00Z",
+    "title": "Helgi Steinar",
+    "desc": "Stand-up comedy — the comedian will also announce the raffle winner. Open to everyone.",
+    "speakers": [
+      {
+        "name": "Helgi Steinar — Comedian",
+        "photo": ""
+      }
+    ],
+    "track": "",
+    "topics": ["Entertainment"]
+  },
+  // ===== SESSION 48: SUN | Room 1 | 10:00–11:00 | Democracy in the City: How Data, Participation and Public Health Can Rebuild Trust =====
+  {
+    "day": "sun",
+    "room": "Room 1",
+    "kind": "breakout",
+    "s": "2026-10-25T10:00:00Z",
+    "e": "2026-10-25T11:00:00Z",
+    "title": "Democracy in the City: How Data, Participation and Public Health Can Rebuild Trust",
+    "desc": "Parallel workshop. Choose the one you'd like to join.",
+    "speakers": [
+      {
+        "name": "Ioannis Kalantzakis",
+        "photo": ""
+      }
+    ],
+    "track": "t3",
+    "topics": ["Technology", "Health", "Participation", "Workshop"]
+  },
+  // ===== SESSION 49: SUN | Room 2 | 10:00–11:00 | Can Universities Learn to Change? Exploring Dialogue, Participation, and Institutional Transformation =====
+  {
+    "day": "sun",
+    "room": "Room 2",
+    "kind": "breakout",
+    "s": "2026-10-25T10:00:00Z",
+    "e": "2026-10-25T11:00:00Z",
+    "title": "Can Universities Learn to Change? Exploring Dialogue, Participation, and Institutional Transformation",
+    "desc": "Parallel workshop. Choose the one you'd like to join.",
+    "speakers": [
+      {
+        "name": "Nadja Gmelch",
+        "photo": ""
+      },
+      {
+        "name": "Sara Maria Münnich-Schlotter",
+        "photo": ""
+      }
+    ],
+    "track": "t5",
+    "topics": ["Education", "Governance", "Participation", "Workshop"]
+  },
+  // ===== SESSION 50: SUN | Room 3 | 10:00–11:00 | Who Gets to Speak? Creating Democratic Folktales in Practice =====
+  {
+    "day": "sun",
+    "room": "Room 3",
+    "kind": "breakout",
+    "s": "2026-10-25T10:00:00Z",
+    "e": "2026-10-25T11:00:00Z",
+    "title": "Who Gets to Speak? Creating Democratic Folktales in Practice",
+    "desc": "Parallel workshop. Choose the one you'd like to join.",
+    "speakers": [
+      {
+        "name": "Anastasia Floraki — Philologist, PhD candidate in Folklore, Democritus University of Thrace",
+        "photo": ""
+      }
+    ],
+    "track": "t6",
+    "topics": ["Culture", "Language", "Workshop"]
+  },
+  // ===== SESSION 51: SUN | Room 4 | 10:00–11:00 | Workshop — to be confirmed =====
+  {
+    "day": "sun",
+    "room": "Room 4",
+    "kind": "breakout",
+    "s": "2026-10-25T10:00:00Z",
+    "e": "2026-10-25T11:00:00Z",
+    "title": "Workshop — to be confirmed",
+    "desc": "Parallel workshop. Choose the one you'd like to join.",
+    "speakers": [
+      {
+        "name": "Vicki Prais",
+        "photo": ""
+      }
+    ],
+    "track": "",
+    "topics": ["Workshop"]
+  },
+  // ===== SESSION 52: SUN | Plenary | 11:00–11:30 | Entertainment (DJ) + The Harvest =====
+  {
+    "day": "sun",
+    "room": "Plenary",
+    "kind": "entertainment",
+    "s": "2026-10-25T11:00:00Z",
+    "e": "2026-10-25T11:30:00Z",
+    "title": "Entertainment (DJ) + The Harvest",
+    "desc": "Closing celebration with a DJ set and the final raffle. Everyone together.",
+    "speakers": [],
+    "track": "",
+    "topics": ["Entertainment"]
+  },
+  // ===== SESSION 53: SAT | Plenary | 11:15–11:20 | Break =====
+  {
+    "day": "sat",
+    "room": "Plenary",
+    "kind": "break",
+    "s": "2026-10-24T11:15:00Z",
+    "e": "2026-10-24T11:20:00Z",
+    "title": "Break",
+    "desc": "",
+    "speakers": [],
+    "track": "",
+    "topics": []
+  }
+  ]
+};
+  var TRACKS = DATA.tracks, SESSIONS = DATA.sessions;
+
+  // Timezone options: UNED's centros asociados en el extranjero, grouped by region,
+  // plus the Madrid host timezone. Several cities share an IANA zone (e.g. Fráncfort/
+  // Múnich/Berlín, or Lisboa/Oporto) — each still gets its own named option so people
+  // can find their own centro, but they resolve to the same underlying clock.
+  var TZ_GROUPS=[
+    {group:"🌎 Americas", items:[
+      {key:"bogota", tz:"America/Bogota", label:"Bogotá (Colombia)"},
+      {key:"buenosaires", tz:"America/Argentina/Buenos_Aires", label:"Buenos Aires (Argentina)"},
+      {key:"caracas", tz:"America/Caracas", label:"Caracas (Venezuela)"},
+      {key:"lima", tz:"America/Lima", label:"Lima (Peru)"},
+      {key:"mexicodf", tz:"America/Mexico_City", label:"Mexico City (Mexico)"},
+      {key:"nuevayork", tz:"America/New_York", label:"New York (United States)"},
+      {key:"quito", tz:"America/Guayaquil", label:"Quito (Ecuador)"},
+      {key:"santiago", tz:"America/Santiago", label:"Santiago (Chile)"},
+      {key:"saopaulo", tz:"America/Sao_Paulo", label:"São Paulo (Brazil)"},
+      {key:"seattle", tz:"America/Los_Angeles", label:"Seattle (United States)"}
+    ]},
+    {group:"🇪🇺 Europe", items:[
+      {key:"madrid", tz:"Europe/Madrid", label:"Madrid (Spain)"},
+      {key:"iceland", tz:"Atlantic/Reykjavik", label:"Iceland — host"},
+      {key:"azores", tz:"Atlantic/Azores", label:"Azores"},
+      {key:"canarias", tz:"Atlantic/Canary", label:"Canary Islands"},
+      {key:"berlin", tz:"Europe/Berlin", label:"Berlin (Germany)"},
+      {key:"berna", tz:"Europe/Zurich", label:"Bern (Switzerland)"},
+      {key:"bruselas", tz:"Europe/Brussels", label:"Brussels (Belgium)"},
+      {key:"frankfurt", tz:"Europe/Berlin", label:"Frankfurt (Germany)"},
+      {key:"gjirokaster", tz:"Europe/Tirane", label:"Gjirokastër (Albania)"},
+      {key:"netherlands", tz:"Europe/Amsterdam", label:"Netherlands"},
+      {key:"lisboa", tz:"Europe/Lisbon", label:"Lisbon (Portugal)"},
+      {key:"londres", tz:"Europe/London", label:"London (United Kingdom)"},
+      {key:"munich", tz:"Europe/Berlin", label:"Munich (Germany)"},
+      {key:"oporto", tz:"Europe/Lisbon", label:"Porto (Portugal)"},
+      {key:"paris", tz:"Europe/Paris", label:"Paris (France)"},
+      {key:"roma", tz:"Europe/Rome", label:"Rome (Italy)"},
+      {key:"latvia", tz:"Europe/Riga", label:"Latvia"},
+      {key:"varsovia", tz:"Europe/Warsaw", label:"Warsaw (Poland)"},
+      {key:"greece", tz:"Europe/Athens", label:"Greece"},
+      {key:"cyprus", tz:"Asia/Nicosia", label:"Cyprus"},
+      {key:"bulgaria", tz:"Europe/Sofia", label:"Bulgaria"}
+    ]},
+    {group:"🌍 Africa", items:[
+      {key:"bata", tz:"Africa/Malabo", label:"Bata (Equatorial Guinea)"},
+      {key:"malabo", tz:"Africa/Malabo", label:"Malabo (Equatorial Guinea)"}
+    ]}
+  ];
+  var TZ_BY_KEY={};
+  TZ_GROUPS.forEach(function(g){g.items.forEach(function(it){TZ_BY_KEY[it.key]=it;});});
+  function curTz(){return (TZ_BY_KEY[state.tzKey]||TZ_BY_KEY.iceland).tz;}
+  function curTzLabel(){return (TZ_BY_KEY[state.tzKey]||TZ_BY_KEY.iceland).label;}
+
+  var state={day:"fri",track:"all",topic:"all",search:"",tzKey:"iceland"};
+  try{
+    var detected=Intl.DateTimeFormat().resolvedOptions().timeZone;
+    var byTz={};
+    TZ_GROUPS.forEach(function(g){g.items.forEach(function(it){if(!byTz[it.tz])byTz[it.tz]=it.key;});});
+    // exact match to a listed centro
+    if(byTz[detected])state.tzKey=byTz[detected];
+    // otherwise fold nearby European zones into the closest listed centro/país
+    var fallback={"Europe/Nicosia":"cyprus","Europe/Vienna":"berlin","Europe/Prague":"berlin",
+      "Europe/Copenhagen":"berlin","Europe/Vilnius":"latvia"};
+    if(!byTz[detected]&&fallback[detected])state.tzKey=fallback[detected];
+  }catch(e){}
+  function fmtTime(iso,tz){return new Intl.DateTimeFormat('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(iso));}
+  function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function spkName(sp){return (typeof sp==='string')?sp:(sp&&sp.name||'');}
+  // Scope all lookups to THIS component's own .agwrap, not the whole document.
+  // If this block is ever rendered more than once on the same page, plain
+  // document.getElementById(...) would only ever find the first instance's
+  // elements, silently leaving every other instance's buttons non-functional.
+  var ROOT=(document.currentScript&&document.currentScript.closest('.agwrap'))||document.querySelectorAll('.agwrap')[document.querySelectorAll('.agwrap').length-1];
+  // Make the site's Agenda menu item scroll to this programme section.
+  try{
+    var agendaRoot=ROOT;
+    var menuLinks=document.querySelectorAll('a');
+    for(var mi=0;mi<menuLinks.length;mi++){
+      var ml=menuLinks[mi];
+      if((ml.textContent||'').trim().toLowerCase()==='agenda'){
+        ml.setAttribute('href','#agenda');
+        ml.addEventListener('click',function(e){
+          var target=document.getElementById('agenda');
+          if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+        });
+      }
+    }
+  }catch(e){}
+  function $(id){return ROOT.querySelector('#'+id);}
+  var daysEl=$('agDays'),trackPillsEl=$('agTrackPills'),trackToggleEl=$('agTrackToggle'),pillsEl=$('agPills'),pillsToggleEl=$('agPillsToggle'),tzEl=$('agTz'),
+      searchEl=$('agSearch'),searchClearEl=$('agSearchClear'),
+      gridEl=$('agGrid'),modalEl=$('agModal'),modalBody=$('agmBody');
+
+  TZ_GROUPS.forEach(function(g){
+    var og=document.createElement('optgroup');og.label=g.group;
+    g.items.forEach(function(it){var o=document.createElement('option');o.value=it.key;o.textContent=it.label;og.appendChild(o);});
+    tzEl.appendChild(og);
+  });
+  tzEl.value=state.tzKey;
+
+  // Track pills — same pill/arrow/smooth-reveal pattern as Topic, with a small dot in
+  // each track's brand color so it doubles as a quick color legend.
+  Object.keys(TRACKS).forEach(function(id){
+    var t=TRACKS[id];
+    var b=document.createElement('button');
+    b.className='agpill';b.dataset.track=id;
+    b.innerHTML='<span class="agpilldot" style="background:'+t.c+'"></span>Track '+t.n+' — '+t.name;
+    trackPillsEl.appendChild(b);
+  });
+  // Topic pills search across all three days — picking a topic switches to a flat,
+  // chronological cross-day results list (see renderCrossDayResults) so nothing tagged
+  // with that topic gets hidden just because it falls on a day tab you're not viewing.
+  function renderPills(){
+    var topics=[];
+    SESSIONS.forEach(function(s){getTopics(s).forEach(function(t){if(t&&topics.indexOf(t)<0)topics.push(t);});});
+    [].slice.call(pillsEl.querySelectorAll('.agpill')).forEach(function(b){if(b.dataset.topic!=='all')b.remove();});
+    topics.sort().forEach(function(t){var b=document.createElement('button');b.className='agpill';b.dataset.topic=t;b.textContent=t;pillsEl.appendChild(b);});
+  }
+  renderPills();
+
+  function getTopics(s){if(Array.isArray(s.topics))return s.topics.filter(Boolean);if(s.topic)return [s.topic];return [];}
+  function getSpeakers(s){return Array.isArray(s.speakers)?s.speakers:[];}
+  function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+
+  function isFiltering(){return state.track!=='all'||state.topic!=='all';}
+
+  function matches(s){
+    if(!isFiltering()){
+      // normal per-day browsing: stay scoped to the selected day, breaks always show
+      // so the timeline keeps its time context
+      if(s.day!==state.day)return false;
+      if(s.kind==='break')return true;
+    } else {
+      // a track or topic filter is active: search every day at once, and drop break
+      // bands — they carry no track/topic and would just be noise in a flat results list
+      if(s.kind==='break')return false;
+    }
+    if(state.track!=='all'&&s.track!==state.track)return false;
+    if(state.topic!=='all'&&getTopics(s).indexOf(state.topic)===-1)return false;
+    if(state.search){
+      var trackName=(s.track&&TRACKS[s.track])?TRACKS[s.track].name:'';
+      var hay=norm([s.title,s.desc,s.room,trackName].concat(getTopics(s),getSpeakers(s).map(spkName)).join(' '));
+      if(hay.indexOf(norm(state.search))===-1)return false;
+    }
+    return true;
+  }
+
+  function fmtDuration(s){
+    var mins=Math.round((new Date(s.e)-new Date(s.s))/60000);
+    if(mins<=0)return'';
+    if(mins<60)return mins+' min';
+    var h=Math.floor(mins/60), m=mins%60;
+    return m?(h+'h '+m+'m'):(h+' h');
+  }
+
+  function openModal(s){
+    var tr=s.track&&TRACKS[s.track]?TRACKS[s.track]:null;
+    var tag=tr?'<span class="agmtag" style="background:'+tr.c+'">Track '+tr.n+'</span>':'';
+    var spk='';
+    if(s.speakers&&s.speakers.length){
+      spk='<div class="agmspklbl">Speakers</div>';
+      s.speakers.forEach(function(sp){
+        var name=(typeof sp==='string')?sp:(sp.name||'');
+        var photo=(typeof sp==='object'&&sp.photo)?sp.photo:'';
+        var initials=name.replace(/—.*$/,'').trim().split(/\s+/).slice(0,2).map(function(w){return w[0]||'';}).join('').toUpperCase();
+        var av=photo?'<img class="av" src="'+esc(photo)+'" alt="'+esc(name)+'" loading="lazy">':'<div class="av initials">'+esc(initials)+'</div>';
+        spk+='<div class="agmspk">'+av+'<div class="nm">'+esc(name)+'</div></div>';
+      });
+    }
+    var dt=new Date(s.s), de=new Date(s.e);
+    function icsDate(d){return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');}
+    var ics='BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:'+icsDate(dt)+'\nDTEND:'+icsDate(de)+'\nSUMMARY:'+(s.title||'')+'\nDESCRIPTION:'+(s.desc||'').replace(/\n/g,' ')+'\nEND:VEVENT\nEND:VCALENDAR';
+    var icsHref='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+    modalBody.innerHTML=
+      '<div class="agmtime">'+fmtTime(s.s,curTz())+' – '+fmtTime(s.e,curTz())+' ('+esc(fmtDuration(s))+') · '+esc(curTzLabel())+' time'+tag+'</div>'+
+      '<h3 class="agmttl" id="agmTitle">'+esc(s.title)+'</h3>'+
+      (s.desc?'<div class="agmdesc">'+esc(s.desc)+'</div>':'')+
+      (getTopics(s).length?'<div class="agtopics">'+getTopics(s).map(function(t){return '<span class="agtopic">'+esc(t)+'</span>';}).join('')+'</div>':'')+
+      spk+
+      '<div class="agmactions"><a class="agmcal" href="'+icsHref+'" download="'+esc((s.title||'session').replace(/[^a-z0-9]+/gi,'-'))+'.ics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Add to calendar</a></div>';
+    modalEl.classList.add('on');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){modalEl.classList.remove('on');document.body.style.overflow='';}
+  $('agmClose').addEventListener('click',closeModal);
+  modalEl.addEventListener('click',function(e){if(e.target===modalEl)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+  (function(){
+    var hot=ROOT.querySelector('.oly-hot'), bio=ROOT.querySelector('.oly-bio');
+    if(!hot||!bio)return;
+    function isMobile(){return window.innerWidth<=820;}
+    function hide(){bio.style.opacity='0';bio.style.visibility='hidden';bio.style.transform='translateY(8px)';bio.style.pointerEvents='none';}
+    function show(){bio.style.opacity='1';bio.style.visibility='visible';bio.style.transform='translateY(0)';bio.style.pointerEvents='auto';}
+    if(isMobile()){
+      hot.addEventListener('click',function(e){
+        e.stopPropagation();
+        if(bio.style.opacity==='1')hide();else show();
+      });
+      bio.addEventListener('click',function(e){e.stopPropagation();hide();});
+      document.addEventListener('click',hide);
+    }
+    // On desktop, the CSS .oly-hot:hover ~ .oly-bio rule handles it.
+  })();
+
+  var SEG_THRESH=20, SEG_FAST=9, SEG_SLOW=2.2, TICK_MS=30*60000;
+  function segHeight(mins){
+    if(mins<=SEG_THRESH)return mins*SEG_FAST;
+    return SEG_THRESH*SEG_FAST+(mins-SEG_THRESH)*SEG_SLOW;
+  }
+  // Builds a non-linear time->pixel map for the day: every distinct interval between
+  // session start/end times is sized by its OWN duration (short intervals get more
+  // px/min so they stay readable, long ones get compressed so they don't dominate),
+  // then stacked cumulatively. Ticks and cards both read off the same map, so
+  // everything stays aligned with no gaps or overlaps.
+  function buildYMap(day,startTick,endTick){
+    var daySessions=SESSIONS.filter(function(s){return s.day===day;});
+    var ptset={};ptset[startTick]=1;ptset[endTick]=1;
+    daySessions.forEach(function(s){ptset[new Date(s.s).getTime()]=1;ptset[new Date(s.e).getTime()]=1;});
+    var pts=Object.keys(ptset).map(Number).sort(function(a,b){return a-b;});
+    var Y=[0];
+    for(var i=1;i<pts.length;i++){Y.push(Y[i-1]+segHeight((pts[i]-pts[i-1])/60000));}
+    function yPos(t){
+      if(t<=pts[0])return Y[0];
+      if(t>=pts[pts.length-1])return Y[Y.length-1];
+      var lo=0,hi=pts.length-1;
+      while(hi-lo>1){var mid=(lo+hi)>>1;if(pts[mid]<=t)lo=mid;else hi=mid;}
+      var a=pts[lo],b=pts[hi],frac=b>a?(t-a)/(b-a):0;
+      return Y[lo]+frac*(Y[hi]-Y[lo]);
+    }
+    return {yPos:yPos,totalH:Y[Y.length-1]};
+  }
+
+  function featBlock(s){
+    var ent=(s.kind==='entertainment'||s.kind==='meal')?' ent':'';
+    var lbl=s.kind==='entertainment'?'Everyone together':(s.kind==='meal'?'Lunch break':(s.kind==='keynote'?'Keynote':(s.kind==='opening'?'Opening':(s.kind==='conversation'?'Conversation':'Plenary'))));
+    var hasSpk=s.speakers&&s.speakers.length;
+    var headline=hasSpk?s.speakers.map(spkName).map(esc).join(' · '):esc(s.title);
+    var sub=hasSpk?'<div class="agsub">'+esc(s.title)+'</div>':'';
+    var html='<div class="agroom">'+lbl+'</div>'+
+      '<div class="agtime">'+fmtTime(s.s,curTz())+' – '+fmtTime(s.e,curTz())+'<span class="agdur">'+esc(fmtDuration(s))+'</span></div>'+
+      '<div class="agttl">'+headline+'</div>'+sub+
+      (getTopics(s).length?'<div class="agtags">'+getTopics(s).map(function(t){return '<span class="agtag">#'+esc(t)+'</span>';}).join('')+'</div>':'');
+    return mkBlock('agcard feat'+ent,html,s);
+  }
+  function brkBlock(s,laneColor){
+    var tr=s.track&&TRACKS[s.track]?TRACKS[s.track]:null;
+    var tag=tr?'<span class="agtracktag" style="background:'+tr.c+'">Track '+tr.n+'</span>':'';
+    var hasSpk=s.speakers&&s.speakers.length;
+    // Was s.speakers[0] only — dropped co-speakers (e.g. Elena Maculan's panel with
+    // Mariano Melendo and Elena Delgado) from the card entirely. Show everyone, same as featBlock.
+    var headline=hasSpk?s.speakers.map(spkName).map(esc).join(' · '):esc(s.title);
+    var sub=hasSpk?'<div class="agsub">'+esc(s.title)+'</div>':'';
+    var html='<div class="agroom">'+esc(s.room||'')+'</div>'+
+      '<div class="agtime">'+fmtTime(s.s,curTz())+' – '+fmtTime(s.e,curTz())+'<span class="agdur">'+esc(fmtDuration(s))+'</span></div>'+
+      tag+'<div class="agttl">'+headline+'</div>'+sub+
+      (getTopics(s).length?'<div class="agtags">'+getTopics(s).map(function(t){return '<span class="agtag">#'+esc(t)+'</span>';}).join('')+'</div>':'');
+    var b=mkBlock('agcard brk',html,s);
+    b.style.borderLeftColor=laneColor||'var(--line)';
+    return b;
+  }
+  function mkBlock(cls,html,s){
+    var d=document.createElement('div');d.className=cls;
+    d.innerHTML='<div class="inner">'+html+'</div>';
+    d.setAttribute('tabindex','0');d.setAttribute('role','button');
+    d.addEventListener('click',function(){openModal(s);});
+    d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(s);}});
+    return d;
+  }
+
+  // Which rooms act as parallel "stage" columns on a given day (derived from breakout
+  // sessions only). A day with no breakouts (e.g. Friday) gets a single implicit column.
+  function laneRoomsForDay(day){
+    var rooms=[];
+    SESSIONS.forEach(function(s){if(s.day===day&&s.kind==='breakout'&&s.room&&rooms.indexOf(s.room)<0)rooms.push(s.room);});
+    rooms.sort(function(a,b){return a.localeCompare(b,undefined,{numeric:true});});
+    return rooms.length?rooms:null;
+  }
+  function dayBounds(day){
+    var ss=SESSIONS.filter(function(s){return s.day===day;});
+    if(!ss.length)return null;
+    var min=Math.min.apply(null,ss.map(function(s){return new Date(s.s).getTime();}));
+    var max=Math.max.apply(null,ss.map(function(s){return new Date(s.e).getTime();}));
+    return {min:min,max:max};
+  }
+
+  var MOBILE_BP=760;
+  var DAY_LABELS={fri:'Friday 23',sat:'Saturday 24',sun:'Sunday 25'};
+  var DAY_ORDER=['fri','sat','sun'];
+  function render(){
+    gridEl.innerHTML='';
+    if(isFiltering()){
+      // a track or topic filter is active: flat cross-day results, grouped under a day
+      // heading so it's always clear which day each matching talk is on — a proportional
+      // time grid doesn't make sense once results span three different days' timelines
+      renderCrossDayResults(SESSIONS.filter(matches));
+      return;
+    }
+    var bounds=dayBounds(state.day);
+    if(!bounds)return;
+    var list=SESSIONS.filter(matches);
+    if(window.innerWidth<=MOBILE_BP){renderMobileFeed(list);}
+    else{renderDesktopGrid(list,bounds);}
+  }
+
+  function renderCrossDayResults(list){
+    var feed=document.createElement('div');feed.className='agmobilefeed';
+    if(!list.length){
+      var empty=document.createElement('div');empty.className='agemptyday agemptyday-flow';
+      empty.textContent='No sessions match this topic.';
+      feed.appendChild(empty);
+      gridEl.appendChild(feed);
+      return;
+    }
+    var sorted=list.slice().sort(function(a,b){
+      var da=DAY_ORDER.indexOf(a.day), db=DAY_ORDER.indexOf(b.day);
+      if(da!==db)return da-db;
+      var d=new Date(a.s)-new Date(b.s);
+      if(d)return d;
+      return (a.room||'').localeCompare(b.room||'',undefined,{numeric:true});
+    });
+    var curDay=null;
+    sorted.forEach(function(s){
+      if(s.day!==curDay){
+        curDay=s.day;
+        var hd=document.createElement('div');hd.className='agdaysep';
+        hd.textContent=DAY_LABELS[curDay]||curDay;
+        feed.appendChild(hd);
+      }
+      var card=s.kind==='breakout'?brkBlock(s,(TRACKS[s.track]||{}).c):featBlock(s);
+      card.classList.add('agcard-flow');
+      feed.appendChild(card);
+    });
+    gridEl.appendChild(feed);
+  }
+
+  // ---- Mobile: a clean chronological stacked list. Same card styling and
+  // colors as desktop, but no side-by-side columns — those only work with
+  // room to breathe. Parallel sessions just follow each other in order,
+  // each full width, distinguished by their own room/track label.
+  function renderMobileFeed(list){
+    var feed=document.createElement('div');feed.className='agmobilefeed';
+    var visibleCount=list.filter(function(x){return x.kind!=='break';}).length;
+    if(!visibleCount){
+      var empty=document.createElement('div');empty.className='agemptyday agemptyday-flow';
+      empty.textContent='No sessions match these filters on this day.';
+      feed.appendChild(empty);
+      gridEl.appendChild(feed);
+      return;
+    }
+    var sorted=list.slice().sort(function(a,b){
+      var d=new Date(a.s)-new Date(b.s);
+      if(d)return d;
+      return (a.room||'').localeCompare(b.room||'',undefined,{numeric:true});
+    });
+    sorted.forEach(function(s){
+      if(s.kind==='break'){
+        var band=document.createElement('div');band.className='agbreakband agbreakband-flow';
+        band.innerHTML='<span>'+esc(s.title)+' · '+fmtTime(s.s,curTz())+'–'+fmtTime(s.e,curTz())+'</span>';
+        feed.appendChild(band);
+        return;
+      }
+      var card=s.kind==='breakout'?brkBlock(s,(TRACKS[s.track]||{}).c):featBlock(s);
+      card.classList.add('agcard-flow');
+      feed.appendChild(card);
+    });
+    gridEl.appendChild(feed);
+  }
+
+  // ---- Desktop/tablet: the full proportional time-grid with side-by-side
+  // room columns, dotted gridlines, and the diffused background wash.
+  function renderDesktopGrid(list,bounds){
+    var lanes=laneRoomsForDay(state.day); // null => single implicit column
+    var nLanes=lanes?lanes.length:1;
+
+    var startTick=Math.floor(bounds.min/TICK_MS)*TICK_MS;
+    var endTick=Math.ceil(bounds.max/TICK_MS)*TICK_MS;
+    var yMap=buildYMap(state.day,startTick,endTick);
+    var totalH=Math.max(yMap.totalH,80);
+
+    var containerW=(gridEl.clientWidth||gridEl.parentElement.clientWidth||900);
+    var axisGuess=54;
+    var avail=Math.max(containerW-axisGuess-4,200);
+    var minLaneW=130, maxLaneW=lanes?230:480;
+    var laneW=lanes?Math.max(minLaneW,Math.min(maxLaneW,Math.floor(avail/nLanes))):Math.max(minLaneW,Math.min(maxLaneW,avail));
+    var totalLaneWidth=nLanes*laneW;
+
+    var scrollWrap=document.createElement('div');scrollWrap.className='agtimelinescroll';
+    var inner=document.createElement('div');inner.className='agtimelineinner';
+    if(lanes){
+      var hdr=document.createElement('div');hdr.className='agcolheaders';
+      lanes.forEach(function(r){var h=document.createElement('div');h.className='agcolhead';h.style.width=(laneW-6)+'px';h.textContent=r;hdr.appendChild(h);});
+      inner.appendChild(hdr);
+    }
+
+    var timeline=document.createElement('div');timeline.className='agtimeline';
+    var axis=document.createElement('div');axis.className='agaxis';axis.style.height=totalH+'px';
+    var laneArea=document.createElement('div');laneArea.className='aglanearea';laneArea.style.height=totalH+'px';laneArea.style.minWidth=totalLaneWidth+'px';
+
+    var PASTELS=['#CBE5F6','#FCC5E2','#D6C5FC','#C2FFDB','#FBE7A1','#FAD4D0'];
+    if(lanes){
+      lanes.forEach(function(r,i){
+        var bg=document.createElement('div');bg.className='agcolbg';
+        bg.style.left=(i*laneW)+'px';bg.style.width=laneW+'px';
+        bg.style.background=PASTELS[i%PASTELS.length];
+        laneArea.appendChild(bg);
+      });
+    } else {
+      // single-lane days (e.g. Friday): the lane area still stretches to fill the
+      // page width, so spread a few blobs across it by percentage, not just the
+      // narrow card column, so the void doesn't stay bare white.
+      var spread=['#CBE5F6','#FCC5E2','#D6C5FC','#C2FFDB'];
+      spread.forEach(function(c,i){
+        var bg=document.createElement('div');bg.className='agcolbg';
+        bg.style.left=(i*28)+'%';bg.style.width='45%';
+        bg.style.background=c;
+        laneArea.appendChild(bg);
+      });
+    }
+
+    var LABEL_MS=30*60000, LINE_MS=15*60000;
+    for(var t=startTick;t<=endTick;t+=LINE_MS){
+      var top=yMap.yPos(t);
+      var tl=document.createElement('div');tl.className='agtickline';tl.style.top=top+'px';laneArea.appendChild(tl);
+      if((t-startTick)%LABEL_MS===0){
+        var lbl=document.createElement('div');lbl.className='agticklabel';lbl.style.top=(top-7)+'px';
+        lbl.textContent=fmtTime(new Date(t).toISOString(),curTz());axis.appendChild(lbl);
+      }
+    }
+
+    var visibleCount=list.filter(function(x){return x.kind!=='break';}).length;
+    if(!visibleCount){
+      var empty=document.createElement('div');empty.className='agemptyday';
+      empty.textContent='No sessions match these filters on this day.';
+      laneArea.appendChild(empty);
+    }
+
+    var VGAP=9;
+    list.forEach(function(s){
+      var sMs=new Date(s.s).getTime(), eMs=new Date(s.e).getTime();
+      var top=yMap.yPos(sMs), h=yMap.yPos(eMs)-top;
+      if(s.kind==='break'){
+        var band=document.createElement('div');band.className='agbreakband';
+        band.style.top=(top+VGAP/2)+'px';band.style.height=Math.max(h-VGAP,13)+'px';
+        band.innerHTML='<span>'+esc(s.title)+' · '+fmtTime(s.s,curTz())+'–'+fmtTime(s.e,curTz())+'</span>';
+        laneArea.appendChild(band);
+        return;
+      }
+      // Any Plenary-room session must always span the full width, regardless of kind —
+      // previously only entertainment/meal/opening did, so keynotes/conversations/talks
+      // in the Plenary got squeezed into the narrow first breakout-room column on days
+      // that also have breakout rooms (e.g. Saturday), clipping their titles.
+      var isWide=(s.room==='Plenary')||(s.kind==='entertainment'||s.kind==='meal'||s.kind==='opening');
+      var card, laneIdx=(lanes&&s.kind==='breakout')?lanes.indexOf(s.room):0;
+      if(laneIdx<0)laneIdx=0;
+      card=s.kind==='breakout'?brkBlock(s,(TRACKS[s.track]||{}).c):featBlock(s);
+      if(isWide){
+        card.style.left='5px';
+        card.style.width=(totalLaneWidth-10)+'px';
+      } else {
+        card.style.left=(laneIdx*laneW+5)+'px';
+        card.style.width=(laneW-10)+'px';
+      }
+      card.style.top=(top+VGAP/2)+'px';
+      card.style.height=Math.max(h-VGAP,40)+'px';
+      laneArea.appendChild(card);
+    });
+
+    timeline.appendChild(axis);
+    timeline.appendChild(laneArea);
+    inner.appendChild(timeline);
+    scrollWrap.appendChild(inner);
+    gridEl.appendChild(scrollWrap);
+  }
+
+  // Keeps the day tabs' highlighted state truthful: a day tab is only "on" when
+  // neither a track nor a topic filter is active (since those now search all 3 days).
+  function syncDayTabs(){
+    [].forEach.call(daysEl.children,function(c){c.classList.toggle('on', !isFiltering() && c.dataset.day===state.day);});
+  }
+
+  function attachToggle(btn,body){
+    btn.addEventListener('click',function(){
+      var open=body.classList.toggle('open');
+      btn.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  attachToggle(trackToggleEl,trackPillsEl);
+  attachToggle(pillsToggleEl,pillsEl);
+
+  daysEl.addEventListener('click',function(e){
+    var b=e.target.closest('.agday');if(!b)return;
+    state.day=b.dataset.day;
+    state.track='all'; state.topic='all'; // picking a day returns to normal per-day browsing
+    [].forEach.call(trackPillsEl.querySelectorAll('.agpill'),function(c){c.classList.toggle('on',c.dataset.track==='all');});
+    [].forEach.call(pillsEl.querySelectorAll('.agpill'),function(c){c.classList.toggle('on',c.dataset.topic==='all');});
+    syncDayTabs();
+    render();
+  });
+  var resizeTimer;
+  window.addEventListener('resize',function(){clearTimeout(resizeTimer);resizeTimer=setTimeout(render,150);});
+  // Track and Topic are separate, mutually exclusive filters — picking a track clears
+  // any active topic (and vice versa) so they never silently combine into an AND search.
+  trackPillsEl.addEventListener('click',function(e){
+    var b=e.target.closest('.agpill');if(!b)return;
+    state.track=b.dataset.track;
+    [].forEach.call(trackPillsEl.querySelectorAll('.agpill'),function(c){c.classList.toggle('on',c===b);});
+    if(state.track!=='all'){
+      state.topic='all';
+      [].forEach.call(pillsEl.querySelectorAll('.agpill'),function(c){c.classList.toggle('on',c.dataset.topic==='all');});
+    }
+    syncDayTabs();
+    render();
+  });
+  pillsEl.addEventListener('click',function(e){
+    var b=e.target.closest('.agpill');if(!b)return;
+    state.topic=b.dataset.topic;
+    [].forEach.call(pillsEl.querySelectorAll('.agpill'),function(c){c.classList.toggle('on',c===b);});
+    if(state.topic!=='all'){
+      state.track='all';
+      [].forEach.call(trackPillsEl.querySelectorAll('.agpill'),function(c){c.classList.toggle('on',c.dataset.track==='all');});
+    }
+    syncDayTabs();
+    render();
+  });
+  tzEl.addEventListener('change',function(){state.tzKey=this.value;render();});
+  searchEl.addEventListener('input',function(){state.search=this.value;searchClearEl.classList.toggle('show',!!this.value);render();});
+  searchClearEl.addEventListener('click',function(){searchEl.value='';state.search='';searchClearEl.classList.remove('show');render();searchEl.focus();});
+  $('agPdf').addEventListener('click',function(e){/* placeholder: replace href with real PDF URL when available */ if(this.getAttribute('href')==='#'){e.preventDefault();alert('The downloadable PDF programme will be linked here. Replace the agPdf href with your PDF URL.');}});
+  render();
+})();
+</script>
+</div>
